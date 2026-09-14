@@ -1,0 +1,20 @@
+FERRETERÍA CAYO - SITIO WEB NEXT.JS
+
+1) Instala Node.js 18 o superior.
+2) Abre una terminal dentro de esta carpeta.
+3) Ejecuta: npm install
+4) Ejecuta: npm run dev
+5) Abre: http://localhost:3000
+
+RUTAS PRINCIPALES
+- /productos
+- /productos?ofertas=1
+- /subcategorias/herramientas-manuales
+- /subcategorias/materiales-de-construccion
+- /subcategorias/pinturas-y-acabados
+- /contacto
+- /carrito
+
+IMPORTANTE
+Las fotografías del catálogo son imágenes externas reales y requieren conexión a internet para mostrarse.
+Puedes cambiar el número de WhatsApp en data/store.ts, constante phone.
