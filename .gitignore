@@ -17,3 +17,4 @@ backup-*.zip
 src/features/catalog/data/store-backup-*.ts
 
 backup-home-blog-*.zip
+src/features/catalog/data/productImages-backup-*.ts

@@ -1461,7 +1461,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeño en celular */
+/* Movimiento mas pequeÃ±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1559,7 +1559,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeño en celular */
+/* Movimiento mas pequeÃ±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1657,7 +1657,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeño en celular */
+/* Movimiento mas pequeÃ±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1755,7 +1755,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeño en celular */
+/* Movimiento mas pequeÃ±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1796,7 +1796,7 @@ body {
     box-shadow;
 }
 
-/* cada uno se anima un poquito después */
+/* cada uno se anima un poquito despuÃ©s */
 
 .benefits-wave .benefit-item:nth-child(1) {
   animation-delay: 0s !important;
@@ -1854,3 +1854,257 @@ body {
 /* ==========================================================
    FIN
    ========================================================== */
+
+
+/* ==========================================================
+   BENEFICIOS CAYO - MOVIMIENTO DERECHA / IZQUIERDA
+   ========================================================== */
+
+.benefits-wave {
+  overflow: hidden;
+}
+
+.benefits-wave .benefit-item {
+  position: relative;
+  animation: beneficioLateralCayo 2.8s ease-in-out infinite !important;
+  will-change: transform;
+}
+
+.benefits-wave .benefit-item:nth-child(1) {
+  animation-delay: 0s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(2) {
+  animation-delay: .2s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(3) {
+  animation-delay: .4s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(4) {
+  animation-delay: .6s !important;
+}
+
+@keyframes beneficioLateralCayo {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(10px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  75% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* check con pequeÃ±o movimiento tambiÃ©n */
+.benefits-wave .benefit-check {
+  display: inline-block;
+  animation: checkLateralCayo 1.6s ease-in-out infinite !important;
+}
+
+@keyframes checkLateralCayo {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(3px);
+  }
+
+  50% {
+    transform: translateX(0);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ==========================================================
+   FIN
+   ========================================================== */
+
+
+/* BENEFICIOS-CAYO-INICIO */
+
+/* contenedor de beneficios */
+.benefits,
+.benefits-grid,
+.home-benefits {
+  overflow: hidden;
+}
+
+/* cada bloque: Precios, Stock, WhatsApp, Delivery */
+.benefits > *,
+.benefits-grid > *,
+.home-benefits > * {
+  position: relative;
+  animation: moverLadosCayo 2.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* retraso para que no todos se muevan exactamente igual */
+.benefits > *:nth-child(1),
+.benefits-grid > *:nth-child(1),
+.home-benefits > *:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.benefits > *:nth-child(2),
+.benefits-grid > *:nth-child(2),
+.home-benefits > *:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.benefits > *:nth-child(3),
+.benefits-grid > *:nth-child(3),
+.home-benefits > *:nth-child(3) {
+  animation-delay: .30s;
+}
+
+.benefits > *:nth-child(4),
+.benefits-grid > *:nth-child(4),
+.home-benefits > *:nth-child(4) {
+  animation-delay: .45s;
+}
+
+/* animación derecha - izquierda */
+@keyframes moverLadosCayo {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(10px); }
+  40%  { transform: translateX(0); }
+  60%  { transform: translateX(-10px); }
+  80%  { transform: translateX(0); }
+  100% { transform: translateX(10px); }
+}
+
+/* en celular: un poco menos movimiento */
+@media (max-width: 768px) {
+  .benefits > *,
+  .benefits-grid > *,
+  .home-benefits > * {
+    animation: moverLadosCayoMobile 2.4s ease-in-out infinite;
+  }
+
+  @keyframes moverLadosCayoMobile {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(6px); }
+    40%  { transform: translateX(0); }
+    60%  { transform: translateX(-6px); }
+    80%  { transform: translateX(0); }
+    100% { transform: translateX(6px); }
+  }
+}
+
+/* BENEFICIOS-CAYO-FIN */
+
+
+/* FOOTER-CENTRADO-CAYO-INICIO */
+
+@media (max-width: 700px) {
+
+  .footer {
+    width: 100%;
+    text-align: center !important;
+  }
+
+  .footer-grid {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+
+    gap: 42px !important;
+
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  .footer-grid > div {
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center !important;
+  }
+
+  .footer-brand {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-logo {
+    width: 100%;
+    text-align: center !important;
+  }
+
+  .footer-brand p {
+    max-width: 290px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+    line-height: 1.7;
+  }
+
+  .footer-grid h3 {
+    width: 100%;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+  }
+
+  .footer-grid a {
+    width: auto !important;
+
+    display: block !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    text-align: center !important;
+  }
+
+  .footer-copy {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center !important;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+}
+
+/* FOOTER-CENTRADO-CAYO-FIN */
