@@ -1,46 +1,61 @@
 import Link from "next/link";
 
 import {
-  Header,
+  Header
 } from "@/features/navigation";
 
 import {
-  Footer,
+  Footer
 } from "@/features/layout";
 
 import {
   categories,
   categoryImages,
-  products,
   slugify,
   CategoryGrid,
   ProductGrid,
-  type CategoryGridItem,
+  type CategoryGridItem
 } from "@/features/catalog";
 
-export default function Home() {
+import {
+  getCatalogProducts
+} from "@/features/catalog/server/product.repository";
 
-  const categoryItems: CategoryGridItem[] =
+export default async function Home() {
+
+  const products =
+    await getCatalogProducts();
+
+  const categoryItems:
+    CategoryGridItem[] =
     categories.map(
       (category) => ({
         title: category,
-        image: categoryImages[category],
+        image:
+          categoryImages[category],
         href:
-          `/subcategorias/${slugify(category)}`,
+          `/subcategorias/${slugify(category)}`
       })
     );
 
-  const featuredOffers =
+  const offers =
     products
       .filter(
         (product) =>
-          product.oldPrice
+          Boolean(product.oldPrice)
+      )
+      .slice(0, 4);
+
+  const featured =
+    products
+      .filter(
+        (product) =>
+          product.featured
       )
       .slice(0, 4);
 
   return (
     <>
-
       <Header />
 
       <section className="hero">
@@ -63,24 +78,22 @@ export default function Home() {
             </h1>
 
             <p>
-              Herramientas, pintura,
-              iluminación, seguridad,
-              gasfitería y materiales
-              con atención rápida.
+              Herramientas, construcción,
+              pintura, iluminación y seguridad.
             </p>
 
             <div className="hero-actions">
 
               <Link
-                className="btn btn-yellow"
                 href="/productos"
+                className="btn btn-yellow"
               >
                 Ver productos
               </Link>
 
               <Link
+                href="/promociones"
                 className="btn btn-outline"
-                href="/productos?ofertas=1"
               >
                 Ver ofertas
               </Link>
@@ -94,79 +107,80 @@ export default function Home() {
       </section>
 
       <section className="benefits">
-
         <div>
           ✓ Precios competitivos
         </div>
 
         <div>
-          ✓ Productos para hogar y obra
+          ✓ Stock visible
         </div>
 
         <div>
-          ✓ Atención por WhatsApp
+          ✓ Pedido por WhatsApp
         </div>
 
         <div>
-          ✓ Catálogo actualizado
+          ✓ Delivery y recojo
         </div>
-
       </section>
 
       <main className="wrap">
 
         <div className="section-head">
-
           <div>
-
             <span className="eyebrow dark">
-              ENCUENTRA LO QUE NECESITAS
+              CATEGORÍAS
             </span>
 
             <h2 className="title">
-              Categorías principales
+              Encuentra lo que necesitas
             </h2>
-
           </div>
-
-          <Link href="/productos">
-            Ver todo →
-          </Link>
-
         </div>
 
         <CategoryGrid
           items={categoryItems}
         />
 
-        <div className="section-head deals-head">
+        {featured.length > 0 ? (
+          <>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow dark">
+                  RECOMENDADOS
+                </span>
 
+                <h2 className="title">
+                  Productos destacados
+                </h2>
+              </div>
+            </div>
+
+            <ProductGrid
+              products={featured}
+            />
+          </>
+        ) : null}
+
+        <div className="section-head">
           <div>
-
             <span className="eyebrow dark">
               PRECIOS ESPECIALES
             </span>
 
             <h2 className="title">
-              Ofertas destacadas
+              Ofertas
             </h2>
-
           </div>
-
-          <Link href="/productos?ofertas=1">
-            Todas las ofertas →
-          </Link>
-
         </div>
 
         <ProductGrid
-          products={featuredOffers}
+          products={offers}
         />
 
       </main>
 
       <Footer />
-
     </>
   );
 }

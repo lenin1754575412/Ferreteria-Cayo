@@ -1,52 +1,34 @@
 import {
-  Header,
+  Header
 } from "@/features/navigation";
 
 import {
-  Footer,
+  Footer
 } from "@/features/layout";
 
 import {
-  ButtonLink,
-  PageHero,
+  CartView
+} from "@/features/cart/ui/CartView";
+
+import {
+  PageHero
 } from "@/shared/ui";
 
 export default function Carrito() {
-
   return (
     <>
-
       <Header />
 
       <PageHero
         title="Carrito"
-        description="Tu selección de productos aparecerá aquí."
+        description="Revisa tus productos antes de continuar."
       />
 
       <main className="wrap">
-
-        <div className="empty">
-
-          <h2>
-            Tu carrito está vacío
-          </h2>
-
-          <p>
-            Explora el catálogo
-            y consulta tus productos
-            por WhatsApp.
-          </p>
-
-          <ButtonLink href="/productos">
-            Ver productos
-          </ButtonLink>
-
-        </div>
-
+        <CartView />
       </main>
 
       <Footer />
-
     </>
   );
 }

@@ -1,34 +1,29 @@
 import Link from "next/link";
 
 import {
-  contactConfig,
+  contactConfig
 } from "@/features/contact";
 
 export function Footer() {
 
   return (
     <>
-
       <footer className="footer">
 
         <div className="footer-grid">
 
           <div className="footer-brand">
-
             <div className="footer-logo">
               CAYO
             </div>
 
             <p>
-              Tu ferretería para herramientas,
-              construcción, pintura, iluminación
-              y mantenimiento.
+              Herramientas, construcción,
+              pintura y ferretería.
             </p>
-
           </div>
 
           <div>
-
             <h3>
               Comprar
             </h3>
@@ -37,60 +32,63 @@ export function Footer() {
               Productos
             </Link>
 
-            <Link href="/productos?ofertas=1">
+            <Link href="/promociones">
               Ofertas
             </Link>
 
-            <Link href="/subcategorias/herramientas-manuales">
-              Herramientas
+            <Link href="/marcas">
+              Marcas
             </Link>
 
+            <Link href="/mis-pedidos">
+              Mis pedidos
+            </Link>
+
+            <Link href="/blog">
+              Blog
+            </Link>
           </div>
 
           <div>
-
             <h3>
-              Categorías
+              Servicio
             </h3>
 
-            <Link href="/subcategorias/materiales-de-construccion">
-              Construcción
+            <Link href="/envios">
+              Envíos
             </Link>
-
-            <Link href="/subcategorias/pinturas-y-acabados">
-              Pinturas
-            </Link>
-
-            <Link href="/subcategorias/iluminacion">
-              Iluminación
-            </Link>
-
-          </div>
-
-          <div>
-
-            <h3>
-              Ayuda
-            </h3>
 
             <Link href="/contacto">
               Contacto
             </Link>
 
-            <Link href="/contacto">
-              Atención al cliente
-            </Link>
-
             <Link href="/carrito">
               Carrito
             </Link>
+          </div>
 
+          <div>
+            <h3>
+              Información
+            </h3>
+
+            <Link href="/terminos">
+              Términos
+            </Link>
+
+            <Link href="/privacidad">
+              Privacidad
+            </Link>
+
+            <Link href="/cambios-devoluciones">
+              Cambios
+            </Link>
           </div>
 
         </div>
 
         <div className="footer-copy">
-          © 2026 Ferretería Cayo · Catálogo web
+          © 2026 Ferretería Cayo
         </div>
 
       </footer>
@@ -98,32 +96,22 @@ export function Footer() {
       <div className="bottom">
 
         <a
+          href={`https://wa.me/${contactConfig.phoneWhatsApp}`}
           target="_blank"
           rel="noreferrer"
-          href={
-            `https://wa.me/${contactConfig.phoneWhatsApp}`
-          }
         >
           WhatsApp Ventas
         </a>
 
-        <Link href="/productos?ofertas=1">
+        <Link href="/promociones">
           Ofertas
         </Link>
 
         <Link href="/contacto">
-          Atención: {contactConfig.phoneDisplay}
+          {contactConfig.phoneDisplay}
         </Link>
 
       </div>
-
-      <a
-        className="up"
-        href="#"
-      >
-        ⌃
-      </a>
-
     </>
   );
 }

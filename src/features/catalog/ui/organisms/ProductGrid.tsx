@@ -1,33 +1,29 @@
 import type {
-  Product,
+  Product
 } from "../../data/store";
 
 import {
-  ProductCard,
+  ProductCard
 } from "../molecules/ProductCard";
 
-type ProductGridProps = {
+export function ProductGrid({
+  products
+}: {
   products: Product[];
   compact?: boolean;
-};
-
-export function ProductGrid({
-  products,
-  compact = false,
-}: ProductGridProps) {
+}) {
 
   return (
     <div className="products">
 
-      {products.map((product) => (
-
-        <ProductCard
-          key={`${product.cat}-${product.name}`}
-          product={product}
-          compact={compact}
-        />
-
-      ))}
+      {products.map(
+        (product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        )
+      )}
 
     </div>
   );

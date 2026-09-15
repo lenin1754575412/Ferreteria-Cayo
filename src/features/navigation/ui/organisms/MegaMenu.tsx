@@ -1,30 +1,42 @@
 import Link from "next/link";
 
 import {
-  menuColumns,
-  slugify,
-} from "@/features/catalog";
+  megaMenus,
+  type MenuKey,
+} from "../../data/menu";
 
-export function MegaMenu() {
+export function MegaMenu({
+  menu,
+}: {
+  menu: MenuKey;
+}) {
+
+  const columns =
+    megaMenus[menu];
 
   return (
     <div className="mega">
 
-      {menuColumns.map(
-        (column, index) => (
+      {columns.map(
+        (column) => (
 
-          <div key={index}>
+          <div
+            key={column.title}
+            className="mega-column"
+          >
 
-            {column.map(
-              (category) => (
+            <h4 className="mega-title">
+              {column.title}
+            </h4>
+
+            {column.items.map(
+              (item) => (
 
                 <Link
-                  key={category}
-                  href={
-                    `/subcategorias/${slugify(category)}`
-                  }
+                  key={`${column.title}-${item.label}`}
+                  href={item.href}
                 >
-                  › {category}
+                  › {item.label}
                 </Link>
 
               )

@@ -10,6 +10,10 @@ import {
 } from "@/features/contact";
 
 import {
+  CartIndicator,
+} from "@/features/cart/ui/CartIndicator";
+
+import {
   SearchBar,
 } from "../molecules/SearchBar";
 
@@ -71,19 +75,20 @@ export function Header() {
         <div className="nav-inner">
 
           <Link
-            aria-label="Inicio"
             href="/"
+            aria-label="Inicio"
           >
             <Home size={18} />
           </Link>
 
           <NavDropdown
             label="Productos"
+            menu="productos"
           />
 
           <Link
             className="new-link"
-            href="/productos?ofertas=1"
+            href="/promociones"
           >
 
             <span>
@@ -96,18 +101,29 @@ export function Header() {
 
           <NavDropdown
             label="Herramientas"
+            menu="herramientas"
           />
 
           <NavDropdown
             label="Construcción"
+            menu="construccion"
           />
 
           <NavDropdown
             label="Pinturas"
+            menu="pinturas"
           />
 
-          <Link href="/productos?ofertas=1">
-            Promociones
+          <Link href="/marcas">
+            Marcas
+          </Link>
+
+          <Link href="/envios">
+            Envíos
+          </Link>
+
+          <Link href="/blog">
+            Blog
           </Link>
 
           <Link
@@ -119,9 +135,7 @@ export function Header() {
 
             Carrito
 
-            <span className="cart">
-              0
-            </span>
+            <CartIndicator />
 
           </Link>
 

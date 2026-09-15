@@ -1,38 +1,39 @@
 export {
+  products,
   categories,
+  brands,
   categoryImages,
+  menuColumns,
+  slugify,
   categoryFromSlug,
   makeProducts,
-  makeSubcategories,
-  menuColumns,
-  products,
-  slugify,
+  makeSubcategories
 } from "./data/store";
 
 export type {
-  Product,
+  Product
 } from "./data/store";
 
 export {
-  filterProducts,
+  filterProducts
 } from "./lib/filterProducts";
 
 export type {
-  CatalogSearchParams,
+  CatalogSearchParams
 } from "./lib/filterProducts";
 
 export {
-  ProductGrid,
+  ProductGrid
 } from "./ui/organisms/ProductGrid";
 
 export {
-  CategoryGrid,
+  CategoryGrid
 } from "./ui/organisms/CategoryGrid";
 
 export type {
-  CategoryGridItem,
+  CategoryGridItem
 } from "./ui/organisms/CategoryGrid";
 
 export {
-  CatalogFilters,
+  CatalogFilters
 } from "./ui/organisms/CatalogFilters";

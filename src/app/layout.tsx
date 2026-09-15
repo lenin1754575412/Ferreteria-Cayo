@@ -1,42 +1,58 @@
 import type {
-  Metadata,
+  Metadata
 } from "next";
 
 import type {
-  ReactNode,
+  ReactNode
 } from "react";
 
 import {
-  DigitalAnimations,
+  Analytics
+} from "@vercel/analytics/react";
+
+import {
+  CartProvider
+} from "@/features/cart";
+
+import {
+  DigitalAnimations
 } from "@/features/animations";
 
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title:
-    "Ferretería Cayo | Herramientas y Construcción",
+  title: {
+    default:
+      "Ferretería Cayo",
+    template:
+      "%s | Ferretería Cayo"
+  },
 
   description:
-    "Ferretería Cayo: herramientas, construcción, pinturas, iluminación, seguridad y más.",
+    "Herramientas, construcción, pinturas, iluminación y ferretería."
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: ReactNode;
 }) {
 
   return (
     <html lang="es">
-
       <body>
 
-        <DigitalAnimations />
+        <CartProvider>
 
-        {children}
+          <DigitalAnimations />
+
+          {children}
+
+        </CartProvider>
+
+        <Analytics />
 
       </body>
-
     </html>
   );
 }

@@ -1,51 +1,47 @@
-import type { Product } from "../../data/store";
+import Link from "next/link";
 
-import { contactConfig } from "@/features/contact";
-
-import {
-  ButtonLink,
-} from "@/shared/ui";
+import type {
+  Product
+} from "../../data/store";
 
 import {
-  ProductBadge,
+  ProductBadge
 } from "../atoms/ProductBadge";
 
 import {
-  ProductPrice,
+  ProductPrice
 } from "../atoms/ProductPrice";
 
-type ProductCardProps = {
-  product: Product;
-  compact?: boolean;
-};
+import {
+  AddToCartButton
+} from "@/features/cart/ui/AddToCartButton";
 
 export function ProductCard({
-  product,
-  compact = false,
-}: ProductCardProps) {
-
-  const message = encodeURIComponent(
-    `Hola Ferretería Cayo, quiero consultar por ${product.name}`
-  );
-
-  const whatsappUrl =
-    `https://wa.me/${contactConfig.phoneWhatsApp}?text=${message}`;
+  product
+}: {
+  product: Product;
+}) {
 
   return (
     <article className="product">
 
-      <div className="product-image">
+      <Link
+        href={`/productos/${product.slug}`}
+      >
+        <div className="product-image">
 
-        <img
-          src={product.img}
-          alt={product.name}
-        />
+          <img
+            src={product.img}
+            alt={product.name}
+            loading="lazy"
+          />
 
-        <ProductBadge
-          value={product.badge}
-        />
+          <ProductBadge
+            value={product.badge}
+          />
 
-      </div>
+        </div>
+      </Link>
 
       <div>
 
@@ -53,30 +49,51 @@ export function ProductCard({
           {product.cat}
         </p>
 
-        <h3>
-          {product.name}
-        </h3>
+        <p className="product-brand">
+          {product.brand}
+        </p>
 
-        {!compact ? (
-          <p className="product-desc">
-            {product.description}
-          </p>
-        ) : null}
+        <Link
+          href={`/productos/${product.slug}`}
+        >
+          <h3>
+            {product.name}
+          </h3>
+        </Link>
+
+        <p className="product-desc">
+          {product.description}
+        </p>
+
+        <p
+          className={
+            product.stock <= 0
+              ? "stock-out"
+              : product.stock <= 5
+                ? "stock-low"
+                : "stock-ok"
+          }
+        >
+          {product.stock <= 0
+            ? "Agotado"
+            : `${product.stock} disponibles`}
+        </p>
 
         <ProductPrice
           price={product.price}
           oldPrice={product.oldPrice}
         />
 
-        <ButtonLink
-          href={whatsappUrl}
-          external
-          className="btn product-btn"
+        <AddToCartButton
+          product={product}
+        />
+
+        <Link
+          className="product-detail-link"
+          href={`/productos/${product.slug}`}
         >
-          {compact
-            ? "Consultar"
-            : "Consultar por WhatsApp"}
-        </ButtonLink>
+          Ver producto →
+        </Link>
 
       </div>
 

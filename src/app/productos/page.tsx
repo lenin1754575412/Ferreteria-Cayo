@@ -1,41 +1,45 @@
 import {
-  Header,
+  Header
 } from "@/features/navigation";
 
 import {
-  Footer,
+  Footer
 } from "@/features/layout";
 
 import {
   CatalogFilters,
   ProductGrid,
   filterProducts,
-  type CatalogSearchParams,
+  type CatalogSearchParams
 } from "@/features/catalog";
 
 import {
-  PageHero,
+  getCatalogProducts
+} from "@/features/catalog/server/product.repository";
+
+import {
+  PageHero
 } from "@/shared/ui";
 
-export default function Productos({
-  searchParams,
+export default async function Productos({
+  searchParams
 }: {
   searchParams: CatalogSearchParams;
 }) {
 
-  const categoria =
-    searchParams.categoria ?? "";
+  const products =
+    await getCatalogProducts();
 
-  const ofertas =
-    searchParams.ofertas === "1";
+  const filtered =
+    filterProducts(
+      products,
+      searchParams
+    );
 
-  const filteredProducts =
-    filterProducts(searchParams);
-
-  const heading =
-    ofertas
+  const title =
+    searchParams.ofertas === "1"
       ? "Ofertas"
-      : categoria ||
+      : searchParams.categoria ||
         (
           searchParams.q
             ? `Resultados para “${searchParams.q}”`
@@ -49,49 +53,43 @@ export default function Productos({
 
       <PageHero
         eyebrow="CATÁLOGO CAYO"
-        title={heading}
-        description={
-          `${filteredProducts.length} productos encontrados`
-        }
+        title={title}
+        description={`${filtered.length} productos encontrados`}
       />
 
       <main className="wrap products-layout">
 
         <CatalogFilters
-          categoria={categoria}
-          ofertas={ofertas}
+          categoria={searchParams.categoria}
+          marca={searchParams.marca}
+          precio={searchParams.precio}
+          ordenar={searchParams.ordenar}
+          stock={searchParams.stock === "1"}
+          ofertas={searchParams.ofertas === "1"}
         />
 
         <section className="catalog">
 
           <ProductGrid
-            products={filteredProducts}
+            products={filtered}
           />
 
-          {
-            filteredProducts.length === 0
-              ? (
-                <div className="empty">
+          {filtered.length === 0 ? (
+            <div className="empty">
 
-                  <h2>
-                    No encontramos productos
-                  </h2>
+              <h2>
+                No encontramos productos
+              </h2>
 
-                  <p>
-                    Prueba con otra búsqueda o categoría.
-                  </p>
+              <a
+                className="btn"
+                href="/productos"
+              >
+                Ver catálogo completo
+              </a>
 
-                  <a
-                    className="btn"
-                    href="/productos"
-                  >
-                    Ver catálogo completo
-                  </a>
-
-                </div>
-              )
-              : null
-          }
+            </div>
+          ) : null}
 
         </section>
 
