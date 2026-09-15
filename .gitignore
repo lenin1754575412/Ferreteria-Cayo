@@ -22,3 +22,5 @@ src/features/catalog/data/store-backup-construccion-*.ts
 src/features/catalog/data/store-backup-bano-*.ts
 src/app/envios/page-backup-*.tsx
 src/app/marcas/page-backup-*.tsx*.mongodb-backup
+
+*.backup-*
