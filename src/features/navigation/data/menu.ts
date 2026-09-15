@@ -1,4 +1,4 @@
-﻿export type MenuKey =
+export type MenuKey =
   | "productos"
   | "herramientas"
   | "construccion"
@@ -208,10 +208,13 @@ export const megaMenus: Record<
           href: "/subcategorias/pinturas-y-acabados",
         },
         {
-          label: "Todas las Pinturas",
-          { label: "Colores de Pintura", href: "/colores-pintura" },
-          href: "/productos?categoria=Pinturas%20y%20Acabados",
-        },
+        label: "Todas las Pinturas",
+        href: "/productos?categoria=Pinturas%20y%20Acabados",
+      },
+      {
+        label: "Colores de Pintura",
+        href: "/colores-pintura",
+      },
       ],
     },
 
