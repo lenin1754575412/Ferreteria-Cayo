@@ -698,6 +698,208 @@ const productSeed: Record<string, SeedItem[]> = {
   ]
 };
 
+
+  // ========================================================
+  // PRODUCTOS EXTRA DE CONSTRUCCION
+  // ========================================================
+
+  productSeed["Materiales de Construcción"].push(
+    {
+      name: "Ladrillo King Kong 18 huecos",
+      brand: "Cayo",
+      price: 1.80,
+      stock: 1000,
+      badge: "MÁS VENDIDO",
+      description:
+        "Ladrillo King Kong de 18 huecos para muros, viviendas y proyectos de construcción."
+    },
+
+    {
+      name: "Ladrillo pandereta 12 huecos",
+      brand: "Cayo",
+      price: 1.30,
+      stock: 850,
+      description:
+        "Ladrillo pandereta para divisiones interiores y trabajos de albañilería."
+    },
+
+    {
+      name: "Ladrillo techo 15 cm",
+      brand: "Cayo",
+      price: 3.50,
+      stock: 600,
+      description:
+        "Ladrillo para techo utilizado en construcciones y losas aligeradas."
+    },
+
+    {
+      name: "Bloque de concreto 39 x 19 x 14 cm",
+      brand: "Cayo",
+      price: 5.90,
+      stock: 420,
+      badge: "NUEVO",
+      description:
+        "Bloque de concreto resistente para muros y proyectos de construcción."
+    },
+
+    {
+      name: "Bloque de concreto 39 x 19 x 9 cm",
+      brand: "Cayo",
+      price: 4.90,
+      stock: 480,
+      description:
+        "Bloque de concreto para divisiones y muros de albañilería."
+    },
+
+    {
+      name: "Mortero para asentado de ladrillo 25 kg",
+      brand: "Sika",
+      price: 31.90,
+      stock: 75,
+      description:
+        "Mortero preparado para asentado de ladrillos y bloques."
+    },
+
+    {
+      name: "Arena gruesa para construcción 40 kg",
+      brand: "Cayo",
+      price: 14.90,
+      stock: 150,
+      description:
+        "Arena gruesa embolsada para concreto, asentado y trabajos de construcción."
+    },
+
+    {
+      name: "Arena fina para tarrajeo 40 kg",
+      brand: "Cayo",
+      price: 13.90,
+      stock: 140,
+      description:
+        "Arena fina para tarrajeo, acabados y trabajos de albañilería."
+    }
+  );
+
+
+  // ========================================================
+  // PRODUCTOS DE BAÑO / PLOMERIA / TUBERIA
+  // ========================================================
+
+  productSeed["Tuberías y Fontanería"].push(
+
+    {
+      name: "Grifo para baño cromado",
+      brand: "Vainsa",
+      price: 89.90,
+      oldPrice: 99.90,
+      stock: 24,
+      badge: "OFERTA",
+      description:
+        "Grifo para baño y lavamanos. Producto de plomeria y tuberia para instalaciones sanitarias."
+    },
+
+    {
+      name: "Ducha cromada para baño",
+      brand: "Vainsa",
+      price: 79.90,
+      stock: 20,
+      badge: "NUEVO",
+      description:
+        "Ducha para baño con acabado cromado. Ideal para instalaciones de tuberia y plomeria sanitaria."
+    },
+
+    {
+      name: "Sifón flexible para lavamanos",
+      brand: "Pavco",
+      price: 22.90,
+      stock: 42,
+      description:
+        "Sifón para baño y lavamanos. Accesorio de tuberia PVC y plomeria para desagüe."
+    },
+
+    {
+      name: "Llave angular para baño 1/2 pulgada",
+      brand: "Vainsa",
+      price: 29.90,
+      stock: 35,
+      description:
+        "Llave angular para baño, lavamanos e instalaciones de agua y tuberia."
+    },
+
+    {
+      name: "Flexible de abasto para baño 40 cm",
+      brand: "Pavco",
+      price: 16.90,
+      stock: 50,
+      description:
+        "Flexible para baño, lavamanos y sanitario. Accesorio para conexión de tuberia de agua."
+    },
+
+    {
+      name: "Rejilla de desagüe para baño",
+      brand: "Truper",
+      price: 18.90,
+      stock: 38,
+      description:
+        "Rejilla metálica para desagüe de baño. Compatible con trabajos de plomeria y tuberia."
+    },
+
+    {
+      name: "Válvula flotadora para tanque sanitario",
+      brand: "Vainsa",
+      price: 34.90,
+      stock: 28,
+      description:
+        "Válvula para tanque sanitario de baño. Repuesto para instalaciones de agua y plomeria."
+    },
+
+    {
+      name: "Tubo PVC sanitario 2 pulgadas",
+      brand: "Pavco",
+      price: 27.90,
+      stock: 85,
+      badge: "MÁS VENDIDO",
+      description:
+        "Tuberia PVC sanitaria para baño, desagüe, lavamanos y proyectos de plomeria."
+    },
+
+    {
+      name: "Codo PVC sanitario 2 pulgadas",
+      brand: "Pavco",
+      price: 6.90,
+      stock: 110,
+      description:
+        "Codo para tuberia PVC sanitaria de baño y sistemas de desagüe."
+    },
+
+    {
+      name: "Tee PVC sanitaria 2 pulgadas",
+      brand: "Pavco",
+      price: 8.90,
+      stock: 95,
+      description:
+        "Tee para tuberia PVC sanitaria utilizada en baño, desagüe y plomeria."
+    },
+
+    {
+      name: "Unión PVC sanitaria 2 pulgadas",
+      brand: "Pavco",
+      price: 5.90,
+      stock: 100,
+      description:
+        "Unión para tuberia PVC de baño, instalaciones sanitarias y desagüe."
+    },
+
+    {
+      name: "Pegamento PVC sanitario",
+      brand: "Oatey",
+      price: 31.90,
+      stock: 45,
+      description:
+        "Pegamento para tuberia PVC sanitaria de baño, agua y trabajos de plomeria."
+    }
+
+  );
+
 const categoryCodes: Record<string, string> = {
   "Herramientas Manuales": "HM",
   "Herramientas Eléctricas": "HE",

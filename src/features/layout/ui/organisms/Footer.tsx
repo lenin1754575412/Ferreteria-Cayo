@@ -28,6 +28,10 @@ export function Footer() {
               Comprar
             </h3>
 
+            <Link href="/nosotros">
+              Nosotros
+            </Link>
+
             <Link href="/productos">
               Productos
             </Link>
@@ -71,6 +75,18 @@ export function Footer() {
             <h3>
               Información
             </h3>
+
+            <Link href="/preguntas-frecuentes">
+              Preguntas frecuentes
+            </Link>
+
+            <Link href="/medios-de-pago">
+              Medios de pago
+            </Link>
+
+            <Link href="/garantia">
+              Garantía
+            </Link>
 
             <Link href="/terminos">
               Términos
