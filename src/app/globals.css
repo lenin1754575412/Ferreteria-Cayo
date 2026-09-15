@@ -1137,3 +1137,253 @@ body {
 }
 
 /* FIN CAYO-HOME-BLOG-2026 */
+
+/* BENEFICIOS EN MOVIMIENTO */
+.benefits{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  overflow:hidden;
+  padding:0;
+}
+
+.benefits-marquee{
+  max-width:1180px;
+  margin:auto;
+  overflow:hidden;
+}
+
+.benefits-track{
+  display:flex;
+  width:max-content;
+  animation: benefitsScroll 18s linear infinite;
+}
+
+.benefits-track span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:295px;
+  padding:20px 28px;
+  font-weight:800;
+  border-right:1px solid var(--line);
+  white-space:nowrap;
+}
+
+.benefits:hover .benefits-track{
+  animation-play-state:paused;
+}
+
+@keyframes benefitsScroll{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media(max-width:700px){
+  .benefits-track span{
+    min-width:240px;
+    padding:16px 18px;
+    font-size:14px;
+  }
+}
+
+
+/* ==========================================================
+   BENEFITS-WAVE-CAYO-V3
+   Los 4 beneficios siempre visibles
+   ========================================================== */
+
+.benefits-wave {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+
+  padding: 0 !important;
+
+  overflow: visible !important;
+
+  background: #ffffff;
+  border-bottom: 1px solid #e3e3de;
+}
+
+.benefits-wave .benefit-item {
+  position: relative;
+
+  min-width: 0;
+
+  padding: 26px 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  text-align: center;
+
+  border-right: 1px solid #e3e3de;
+
+  font-size: 17px;
+  font-weight: 900;
+
+  color: #20242a;
+
+  background: #ffffff;
+
+  animation:
+    cayoBenefitWave 2.8s ease-in-out infinite;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    box-shadow .25s ease;
+}
+
+.benefits-wave .benefit-item:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.benefits-wave .benefit-item:nth-child(2) {
+  animation-delay: .25s;
+}
+
+.benefits-wave .benefit-item:nth-child(3) {
+  animation-delay: .50s;
+}
+
+.benefits-wave .benefit-item:nth-child(4) {
+  animation-delay: .75s;
+}
+
+.benefits-wave .benefit-item:last-child {
+  border-right: 0;
+}
+
+.benefit-check {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background: #f5b700;
+  color: #111820;
+
+  font-size: 16px;
+  font-weight: 1000;
+
+  animation:
+    cayoCheckPulse 2.8s ease-in-out infinite;
+}
+
+.benefit-item:nth-child(1) .benefit-check {
+  animation-delay: 0s;
+}
+
+.benefit-item:nth-child(2) .benefit-check {
+  animation-delay: .25s;
+}
+
+.benefit-item:nth-child(3) .benefit-check {
+  animation-delay: .50s;
+}
+
+.benefit-item:nth-child(4) .benefit-check {
+  animation-delay: .75s;
+}
+
+.benefit-item strong {
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.benefit-item:hover {
+  background: #fff7d6;
+
+  box-shadow:
+    inset 0 -4px 0 #f5b700;
+}
+
+/* Movimiento suave */
+
+@keyframes cayoBenefitWave {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+}
+
+/* Movimiento del check */
+
+@keyframes cayoCheckPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.18);
+  }
+
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+  .benefits-wave {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .benefits-wave .benefit-item {
+    min-height: 82px;
+    font-size: 16px;
+  }
+
+}
+
+/* CELULAR */
+
+@media (max-width: 520px) {
+
+  .benefits-wave {
+    grid-template-columns: 1fr !important;
+  }
+
+  .benefits-wave .benefit-item {
+    width: 100%;
+
+    min-height: 66px;
+
+    padding: 18px 15px;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid #e3e3de;
+
+    font-size: 15px;
+  }
+
+  .benefits-wave .benefit-item:last-child {
+    border-bottom: 0;
+  }
+
+}
+
+/* FIN BENEFITS-WAVE-CAYO-V3 */

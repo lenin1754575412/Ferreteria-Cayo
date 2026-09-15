@@ -65,7 +65,7 @@ export default async function Home() {
           <div className="hero-content">
 
             <span className="eyebrow">
-              FERRETERÍA CAYO
+              FERRETERÃA CAYO
             </span>
 
             <h1>
@@ -78,8 +78,8 @@ export default async function Home() {
             </h1>
 
             <p>
-              Herramientas, construcción,
-              pintura, iluminación y seguridad.
+              Herramientas, construcciÃ³n,
+              pintura, iluminaciÃ³n y seguridad.
             </p>
 
             <div className="hero-actions">
@@ -106,22 +106,28 @@ export default async function Home() {
 
       </section>
 
-      <section className="benefits">
-        <div>
-          ✓ Precios competitivos
+                  <section className="benefits benefits-wave">
+
+        <div className="benefit-item">
+          <span className="benefit-check">✓</span>
+          <strong>Precios competitivos</strong>
         </div>
 
-        <div>
-          ✓ Stock visible
+        <div className="benefit-item">
+          <span className="benefit-check">✓</span>
+          <strong>Stock visible</strong>
         </div>
 
-        <div>
-          ✓ Pedido por WhatsApp
+        <div className="benefit-item">
+          <span className="benefit-check">✓</span>
+          <strong>Pedido por WhatsApp</strong>
         </div>
 
-        <div>
-          ✓ Delivery y recojo
+        <div className="benefit-item">
+          <span className="benefit-check">✓</span>
+          <strong>Delivery y recojo</strong>
         </div>
+
       </section>
 
       <main className="wrap">
@@ -129,7 +135,7 @@ export default async function Home() {
         <div className="section-head">
           <div>
             <span className="eyebrow dark">
-              CATEGORÍAS
+              CATEGORÃAS
             </span>
 
             <h2 className="title">
