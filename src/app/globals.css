@@ -1779,3 +1779,78 @@ body {
    FIN MOVIMIENTO BENEFICIOS CAYO V4
    ========================================================== */
 
+
+
+/* ==========================================================
+   BENEFICIOS CAYO - MOVIMIENTO EN EL MISMO LUGAR
+   ========================================================== */
+
+.benefits-wave .benefit-item {
+  transform: none !important;
+
+  animation:
+    beneficioPulsoCayo 2.4s ease-in-out infinite !important;
+
+  will-change:
+    transform,
+    box-shadow;
+}
+
+/* cada uno se anima un poquito después */
+
+.benefits-wave .benefit-item:nth-child(1) {
+  animation-delay: 0s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(2) {
+  animation-delay: .25s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(3) {
+  animation-delay: .50s !important;
+}
+
+.benefits-wave .benefit-item:nth-child(4) {
+  animation-delay: .75s !important;
+}
+
+/* SOLO CRECE UN POQUITO.
+   NO SE MUEVE DE SU POSICION */
+
+@keyframes beneficioPulsoCayo {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.025);
+    box-shadow:
+      0 0 18px rgba(245, 183, 0, .15);
+  }
+}
+
+/* check amarillo */
+
+.benefit-check {
+  animation:
+    checkPulsoCayo 1.6s ease-in-out infinite !important;
+}
+
+@keyframes checkPulsoCayo {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+/* ==========================================================
+   FIN
+   ========================================================== */
