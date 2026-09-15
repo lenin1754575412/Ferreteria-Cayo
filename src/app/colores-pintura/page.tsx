@@ -4,131 +4,35 @@ import { Footer } from "@/features/layout";
 import { PageHero } from "@/shared/ui";
 
 const colores = [
-  {
-    nombre: "Blanco",
-    codigo: "#FFFFFF",
-    buscar: "blanco",
-    borde: true,
-  },
-  {
-    nombre: "Blanco humo",
-    codigo: "#F1F1ED",
-    buscar: "blanco humo",
-    borde: true,
-  },
-  {
-    nombre: "Marfil",
-    codigo: "#FFF8DC",
-    buscar: "marfil",
-    borde: true,
-  },
-  {
-    nombre: "Crema",
-    codigo: "#FFF3C4",
-    buscar: "crema",
-    borde: true,
-  },
-  {
-    nombre: "Beige",
-    codigo: "#DCC9A3",
-    buscar: "beige",
-  },
-  {
-    nombre: "Arena",
-    codigo: "#D6B887",
-    buscar: "arena",
-  },
-  {
-    nombre: "Amarillo",
-    codigo: "#F9D71C",
-    buscar: "amarillo",
-  },
-  {
-    nombre: "Naranja",
-    codigo: "#F58220",
-    buscar: "naranja",
-  },
-  {
-    nombre: "Rojo",
-    codigo: "#C62828",
-    buscar: "rojo",
-  },
-  {
-    nombre: "Coral",
-    codigo: "#F26B5B",
-    buscar: "coral",
-  },
-  {
-    nombre: "Rosado",
-    codigo: "#F3A6B9",
-    buscar: "rosado",
-  },
-  {
-    nombre: "Lila",
-    codigo: "#C8A2C8",
-    buscar: "lila",
-  },
-  {
-    nombre: "Morado",
-    codigo: "#6A3D9A",
-    buscar: "morado",
-  },
-  {
-    nombre: "Azul",
-    codigo: "#1769AA",
-    buscar: "azul",
-  },
-  {
-    nombre: "Azul marino",
-    codigo: "#183153",
-    buscar: "azul marino",
-  },
-  {
-    nombre: "Celeste",
-    codigo: "#67B7DC",
-    buscar: "celeste",
-  },
-  {
-    nombre: "Turquesa",
-    codigo: "#28B8B0",
-    buscar: "turquesa",
-  },
-  {
-    nombre: "Verde",
-    codigo: "#3B8D4E",
-    buscar: "verde",
-  },
-  {
-    nombre: "Verde oliva",
-    codigo: "#7C8A45",
-    buscar: "verde oliva",
-  },
-  {
-    nombre: "Gris claro",
-    codigo: "#C9CDD1",
-    buscar: "gris claro",
-    borde: true,
-  },
-  {
-    nombre: "Gris",
-    codigo: "#7A7F85",
-    buscar: "gris",
-  },
-  {
-    nombre: "Antracita",
-    codigo: "#3F4448",
-    buscar: "antracita",
-  },
-  {
-    nombre: "Marrón",
-    codigo: "#795548",
-    buscar: "marron",
-  },
-  {
-    nombre: "Negro",
-    codigo: "#161616",
-    buscar: "negro",
-  },
+  { nombre: "Blanco", slug: "blanco", codigo: "#FFFFFF", borde: true },
+  { nombre: "Blanco humo", slug: "blanco-humo", codigo: "#F1F1ED", borde: true },
+  { nombre: "Marfil", slug: "marfil", codigo: "#FFF8DC", borde: true },
+  { nombre: "Crema", slug: "crema", codigo: "#FFF3C4", borde: true },
+
+  { nombre: "Beige", slug: "beige", codigo: "#DCC9A3" },
+  { nombre: "Arena", slug: "arena", codigo: "#D6B887" },
+  { nombre: "Amarillo", slug: "amarillo", codigo: "#F9D71C" },
+  { nombre: "Naranja", slug: "naranja", codigo: "#F58220" },
+
+  { nombre: "Rojo", slug: "rojo", codigo: "#C62828" },
+  { nombre: "Coral", slug: "coral", codigo: "#F26B5B" },
+  { nombre: "Rosado", slug: "rosado", codigo: "#F3A6B9" },
+  { nombre: "Lila", slug: "lila", codigo: "#C8A2C8" },
+
+  { nombre: "Morado", slug: "morado", codigo: "#6A3D9A" },
+  { nombre: "Azul", slug: "azul", codigo: "#1769AA" },
+  { nombre: "Azul marino", slug: "azul-marino", codigo: "#183153" },
+  { nombre: "Celeste", slug: "celeste", codigo: "#67B7DC" },
+
+  { nombre: "Turquesa", slug: "turquesa", codigo: "#28B8B0" },
+  { nombre: "Verde", slug: "verde", codigo: "#3B8D4E" },
+  { nombre: "Verde oliva", slug: "verde-oliva", codigo: "#7C8A45" },
+  { nombre: "Gris claro", slug: "gris-claro", codigo: "#C9CDD1" },
+
+  { nombre: "Gris", slug: "gris", codigo: "#7A7F85" },
+  { nombre: "Antracita", slug: "antracita", codigo: "#3F4448" },
+  { nombre: "Marrón", slug: "marron", codigo: "#795548" },
+  { nombre: "Negro", slug: "negro", codigo: "#161616" },
 ];
 
 export default function ColoresPinturaPage() {
@@ -139,18 +43,19 @@ export default function ColoresPinturaPage() {
       <PageHero
         eyebrow="PINTURAS · FERRETERÍA CAYO"
         title="Colores de Pintura"
-        description="Explora nuestra paleta de colores para interiores, exteriores y proyectos de construcción."
+        description="Explora colores para interiores, exteriores y proyectos de construcción."
       />
 
       <main className="paint-page wrap">
         <div className="paint-intro">
           <div>
             <span className="paint-kicker">PALETA DE COLORES</span>
+
             <h2>Encuentra el tono para tu proyecto</h2>
 
             <p>
-              Selecciona un color para buscar pinturas relacionadas en
-              nuestro catálogo.
+              Selecciona un color para explorar diferentes tonos y
+              combinaciones.
             </p>
           </div>
 
@@ -165,12 +70,14 @@ export default function ColoresPinturaPage() {
         <section className="paint-color-grid">
           {colores.map((color) => (
             <Link
-              key={color.nombre}
-              href={`/productos?q=${encodeURIComponent(color.buscar)}`}
+              key={color.slug}
+              href={`/colores-pintura/${color.slug}`}
               className="paint-color-card"
             >
               <div
-                className={`paint-swatch${color.borde ? " paint-swatch-border" : ""}`}
+                className={`paint-swatch${
+                  color.borde ? " paint-swatch-border" : ""
+                }`}
                 style={{
                   backgroundColor: color.codigo,
                 }}
@@ -186,27 +93,6 @@ export default function ColoresPinturaPage() {
               </div>
             </Link>
           ))}
-        </section>
-
-        <section className="paint-help">
-          <div>
-            <span>¿NO SABES QUÉ COLOR ELEGIR?</span>
-            <h2>Encuentra el acabado ideal</h2>
-            <p>
-              También tenemos brochas, rodillos, selladores,
-              adhesivos y accesorios para pintar.
-            </p>
-          </div>
-
-          <div className="paint-help-actions">
-            <Link href="/productos?q=rodillo">
-              Ver rodillos
-            </Link>
-
-            <Link href="/productos?q=brocha">
-              Ver brochas
-            </Link>
-          </div>
         </section>
       </main>
 
