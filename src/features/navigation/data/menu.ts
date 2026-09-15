@@ -1,4 +1,4 @@
-export type MenuKey =
+﻿export type MenuKey =
   | "productos"
   | "herramientas"
   | "construccion"
@@ -33,33 +33,33 @@ export const megaMenus: Record<
           href: "/subcategorias/herramientas-manuales",
         },
         {
-          label: "Herramientas Eléctricas",
+          label: "Herramientas ElÃ©ctricas",
           href: "/subcategorias/herramientas-electricas",
         },
         {
-          label: "Herramientas de Jardín",
+          label: "Herramientas de JardÃ­n",
           href: "/subcategorias/herramientas-de-jardin",
         },
         {
-          label: "Equipos de Protección",
+          label: "Equipos de ProtecciÃ³n",
           href: "/subcategorias/equipos-de-proteccion",
         },
       ],
     },
 
     {
-      title: "Construcción",
+      title: "ConstrucciÃ³n",
       items: [
         {
-          label: "Materiales de Construcción",
+          label: "Materiales de ConstrucciÃ³n",
           href: "/subcategorias/materiales-de-construccion",
         },
         {
-          label: "Cemento y Áridos",
+          label: "Cemento y Ãridos",
           href: "/subcategorias/cemento-y-aridos",
         },
         {
-          label: "Tuberías y Fontanería",
+          label: "TuberÃ­as y FontanerÃ­a",
           href: "/subcategorias/tuberias-y-fontaneria",
         },
         {
@@ -70,14 +70,14 @@ export const megaMenus: Record<
     },
 
     {
-      title: "Ferretería",
+      title: "FerreterÃ­a",
       items: [
         {
           label: "Pinturas y Acabados",
           href: "/subcategorias/pinturas-y-acabados",
         },
         {
-          label: "Iluminación",
+          label: "IluminaciÃ³n",
           href: "/subcategorias/iluminacion",
         },
         {
@@ -85,7 +85,7 @@ export const megaMenus: Record<
           href: "/subcategorias/cerraduras-y-seguridad",
         },
         {
-          label: "Accesorios de Ferretería",
+          label: "Accesorios de FerreterÃ­a",
           href: "/subcategorias/accesorios-de-ferreteria",
         },
       ],
@@ -106,7 +106,7 @@ export const megaMenus: Record<
           href: "/subcategorias/herramientas-manuales",
         },
         {
-          label: "Herramientas Eléctricas",
+          label: "Herramientas ElÃ©ctricas",
           href: "/subcategorias/herramientas-electricas",
         },
       ],
@@ -116,11 +116,11 @@ export const megaMenus: Record<
       title: "Trabajo y Seguridad",
       items: [
         {
-          label: "Equipos de Protección",
+          label: "Equipos de ProtecciÃ³n",
           href: "/subcategorias/equipos-de-proteccion",
         },
         {
-          label: "Accesorios de Ferretería",
+          label: "Accesorios de FerreterÃ­a",
           href: "/subcategorias/accesorios-de-ferreteria",
         },
       ],
@@ -130,7 +130,7 @@ export const megaMenus: Record<
       title: "Exterior",
       items: [
         {
-          label: "Herramientas de Jardín",
+          label: "Herramientas de JardÃ­n",
           href: "/subcategorias/herramientas-de-jardin",
         },
         {
@@ -151,11 +151,11 @@ export const megaMenus: Record<
       title: "Materiales",
       items: [
         {
-          label: "Materiales de Construcción",
+          label: "Materiales de ConstrucciÃ³n",
           href: "/subcategorias/materiales-de-construccion",
         },
         {
-          label: "Cemento y Áridos",
+          label: "Cemento y Ãridos",
           href: "/subcategorias/cemento-y-aridos",
         },
       ],
@@ -165,11 +165,11 @@ export const megaMenus: Record<
       title: "Instalaciones",
       items: [
         {
-          label: "Tuberías y Fontanería",
+          label: "TuberÃ­as y FontanerÃ­a",
           href: "/subcategorias/tuberias-y-fontaneria",
         },
         {
-          label: "Iluminación",
+          label: "IluminaciÃ³n",
           href: "/subcategorias/iluminacion",
         },
       ],
@@ -187,7 +187,7 @@ export const megaMenus: Record<
           href: "/subcategorias/cerraduras-y-seguridad",
         },
         {
-          label: "Ver todo Construcción",
+          label: "Ver todo ConstrucciÃ³n",
           href: "/productos?categoria=Materiales%20de%20Construcci%C3%B3n",
         },
       ],
@@ -209,13 +209,14 @@ export const megaMenus: Record<
         },
         {
           label: "Todas las Pinturas",
+          { label: "Colores de Pintura", href: "/colores-pintura" },
           href: "/productos?categoria=Pinturas%20y%20Acabados",
         },
       ],
     },
 
     {
-      title: "Aplicación",
+      title: "AplicaciÃ³n",
       items: [
         {
           label: "Rodillos",
@@ -233,7 +234,7 @@ export const megaMenus: Record<
     },
 
     {
-      title: "Preparación y Acabado",
+      title: "PreparaciÃ³n y Acabado",
       items: [
         {
           label: "Selladores",

@@ -1,0 +1,69 @@
+﻿import * as Store from "../data/store";
+
+type AnyProduct = Record<string, any>;
+
+function getLocalProducts(): AnyProduct[] {
+  const values = Object.values(Store);
+
+  const arrays = values.filter(Array.isArray) as AnyProduct[][];
+
+  const products =
+    arrays.find((arr) =>
+      arr.some(
+        (item) =>
+          item &&
+          typeof item === "object" &&
+          ("price" in item ||
+            "precio" in item ||
+            "stock" in item) &&
+          ("name" in item ||
+            "nombre" in item ||
+            "slug" in item)
+      )
+    ) ?? [];
+
+  return products;
+}
+
+export async function getCatalogProducts() {
+  return getLocalProducts();
+}
+
+export async function getProductBySlug(slug: string) {
+  return (
+    getLocalProducts().find(
+      (product) =>
+        String(product.slug ?? "").toLowerCase() ===
+        String(slug).toLowerCase()
+    ) ?? null
+  );
+}
+
+export async function getCatalogProductBySlug(slug: string) {
+  return getProductBySlug(slug);
+}
+
+export async function searchCatalogProducts(query: string) {
+  const q = String(query ?? "").trim().toLowerCase();
+
+  if (!q) return getLocalProducts();
+
+  return getLocalProducts().filter((product) => {
+    const text = [
+      product.name,
+      product.nombre,
+      product.description,
+      product.descripcion,
+      product.category,
+      product.categoria,
+      product.brand,
+      product.marca,
+      product.slug,
+    ]
+      .filter(Boolean)
+      .join(" ")
+      .toLowerCase();
+
+    return text.includes(q);
+  });
+}
