@@ -4452,3 +4452,210 @@ body {
 
 /* ===== END CAYO CART PAGE ===== */
 
+
+/* =====================================================
+   CAYO ANIMACIONES GLOBALES
+   Micro-interacciones, hover y keyframes en toda la web.
+   ===================================================== */
+
+/* Transiciones suaves globales para elementos interactivos */
+a,
+button,
+.btn,
+.subcard,
+.product,
+.info-card,
+.contact-card,
+.benefit-item,
+.brands-pro-card,
+.brands-pro-highlight-card,
+.cayo-cart-category-card,
+img {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.2s ease,
+    filter 0.25s ease;
+}
+
+/* Botones: elevación + brillo + pulsación */
+.btn:hover,
+.brands-pro-btn-primary:hover,
+.brands-pro-btn-secondary:hover,
+.cayo-cart-primary-button:hover,
+.cayo-cart-secondary-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px #0000002e;
+  filter: brightness(1.03);
+}
+
+.btn:active,
+button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Efecto de brillo que cruza los botones amarillos */
+.btn-yellow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-yellow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    #ffffff80,
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.btn-yellow:hover::after {
+  left: 140%;
+}
+
+/* Tarjetas: elevación más marcada */
+.subcard:hover,
+.product:hover,
+.info-card:hover,
+.contact-card:hover,
+.brands-pro-card:hover,
+.brands-pro-highlight-card:hover,
+.cayo-cart-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px #0000001f;
+}
+
+/* Zoom de imágenes dentro de tarjetas */
+.product-image img,
+.image-wrap img {
+  transition: transform 0.45s ease;
+}
+
+.product:hover .product-image img,
+.subcard:hover .image-wrap img {
+  transform: scale(1.06);
+}
+
+/* Enlaces de navegación con subrayado animado */
+.nav a,
+.nav-item > button {
+  position: relative;
+}
+
+.nav a::after,
+.nav-item > button::after {
+  content: "";
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  bottom: 8px;
+  height: 2px;
+  background: var(--yellow2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav a:hover::after,
+.nav-item:hover > button::after {
+  transform: scaleX(1);
+}
+
+/* Mega menú: entrada suave */
+.nav-item .mega {
+  transform-origin: top;
+}
+
+.nav-item:hover .mega,
+.nav-item:focus-within .mega {
+  animation: cayoMegaIn 0.22s ease;
+}
+
+@keyframes cayoMegaIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge de oferta con latido sutil */
+.badge {
+  animation: cayoPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes cayoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Indicador del carrito: rebote al actualizarse */
+.cart {
+  transition: transform 0.2s ease;
+}
+
+.cart:hover {
+  transform: scale(1.12);
+}
+
+/* Check de beneficios */
+.benefit-check {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.benefit-item:hover .benefit-check {
+  transform: scale(1.3) rotate(8deg);
+}
+
+/* Botón "subir" flotante */
+.up {
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.up:hover {
+  transform: translateY(-4px);
+  background: var(--orange);
+}
+
+/* Barra inferior móvil */
+.bottom a:active {
+  background: #0000001a;
+}
+
+/* Reveal por defecto para elementos marcados manualmente */
+[data-reveal] {
+  will-change: opacity, transform;
+}
+
+/* Respeto por reduce-motion: sin animaciones */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ===== END CAYO ANIMACIONES GLOBALES ===== */
