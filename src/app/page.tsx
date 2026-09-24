@@ -65,7 +65,7 @@ export default async function Home() {
           <div className="hero-content">
 
             <span className="eyebrow">
-              FERRETERÃA CAYO
+              FERRETERÍA CAYO
             </span>
 
             <h1>
@@ -78,8 +78,8 @@ export default async function Home() {
             </h1>
 
             <p>
-              Herramientas, construcciÃ³n,
-              pintura, iluminaciÃ³n y seguridad.
+              Herramientas, construcción,
+              pintura, iluminación y seguridad.
             </p>
 
             <div className="hero-actions">
@@ -135,7 +135,7 @@ export default async function Home() {
         <div className="section-head">
           <div>
             <span className="eyebrow dark">
-              CATEGORÃAS
+              CATEGORÍAS
             </span>
 
             <h2 className="title">
