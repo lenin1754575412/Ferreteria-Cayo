@@ -1,6 +1,6 @@
-﻿import * as Store from "../data/store";
+import * as Store from "../data/store";
 
-type AnyProduct = Record<string, any>;
+type AnyProduct = Store.Product & Record<string, any>;
 
 function normalize(value: unknown): string {
   return String(value ?? "")
