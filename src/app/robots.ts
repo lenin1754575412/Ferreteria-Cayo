@@ -6,7 +6,7 @@ export default function robots():
 MetadataRoute.Robots {
 
   const site =
-    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ||
     "https://ferreteria-cayo.vercel.app";
 
   return {

@@ -21,7 +21,7 @@ import {
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://ferreteria-cayo.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ferreteria-cayo.vercel.app"),
   verification: { google: "TU_CODIGO_AQUI" },
   title: {
     default:

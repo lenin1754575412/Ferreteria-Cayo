@@ -10,7 +10,7 @@ export default async function sitemap():
 Promise<MetadataRoute.Sitemap> {
 
   const site =
-    process.env.NEXT_PUBLIC_SITE_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ||
     "https://ferreteria-cayo.vercel.app";
 
   const products =
