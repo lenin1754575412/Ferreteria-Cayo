@@ -122,7 +122,7 @@ export default function NosotrosPage() {
           </div>
 
           <Link
-            href="https://wa.me/51992100555"
+            href="https://wa.me/51992110555"
             className="btn"
             target="_blank"
           >

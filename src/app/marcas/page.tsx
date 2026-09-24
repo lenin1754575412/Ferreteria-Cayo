@@ -248,7 +248,7 @@ export default function MarcasPage() {
 
             <div className="brands-pro-cta-actions">
               <Link
-                href="https://wa.me/51992100555?text=Hola%20Ferretería%20Cayo,%20quiero%20consultar%20sobre%20una%20marca."
+                href="https://wa.me/51992110555?text=Hola%20Ferretería%20Cayo,%20quiero%20consultar%20sobre%20una%20marca."
                 target="_blank"
                 className="brands-pro-btn-primary"
               >

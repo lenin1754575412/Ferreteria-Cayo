@@ -59,7 +59,7 @@ export default function EnviosPage() {
             <div className="shipping-hero-actions">
 
               <Link
-                href="https://wa.me/51992100555?text=Hola%20Ferretería%20Cayo,%20quiero%20consultar%20sobre%20un%20envío."
+                href="https://wa.me/51992110555?text=Hola%20Ferretería%20Cayo,%20quiero%20consultar%20sobre%20un%20envío."
                 target="_blank"
                 className="shipping-primary-btn"
               >
@@ -141,7 +141,7 @@ export default function EnviosPage() {
               </p>
 
               <Link
-                href="https://wa.me/51992100555?text=Hola,%20quiero%20consultar%20el%20costo%20de%20delivery."
+                href="https://wa.me/51992110555?text=Hola,%20quiero%20consultar%20el%20costo%20de%20delivery."
                 target="_blank"
               >
                 Consultar envío
@@ -172,7 +172,7 @@ export default function EnviosPage() {
               </p>
 
               <Link
-                href="https://wa.me/51992100555?text=Hola,%20quiero%20coordinar%20el%20recojo%20de%20un%20pedido."
+                href="https://wa.me/51992110555?text=Hola,%20quiero%20coordinar%20el%20recojo%20de%20un%20pedido."
                 target="_blank"
               >
                 Coordinar recojo
@@ -203,7 +203,7 @@ export default function EnviosPage() {
               </p>
 
               <Link
-                href="https://wa.me/51992100555?text=Hola,%20quiero%20consultar%20el%20transporte%20de%20materiales%20pesados."
+                href="https://wa.me/51992110555?text=Hola,%20quiero%20consultar%20el%20transporte%20de%20materiales%20pesados."
                 target="_blank"
               >
                 Consultar transporte
@@ -363,11 +363,11 @@ export default function EnviosPage() {
             </span>
 
             <strong>
-              992 100 555
+              992 110 555
             </strong>
 
             <Link
-              href="https://wa.me/51992100555"
+              href="https://wa.me/51992110555"
               target="_blank"
             >
               <MessageCircle size={18} />

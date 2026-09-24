@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Header } from "@/features/navigation";
 import { Footer } from "@/features/layout";
 
@@ -176,7 +176,7 @@ export default function CarritoPage() {
             </Link>
 
             <a
-              href="https://wa.me/51992100555"
+              href="https://wa.me/51992110555"
               target="_blank"
               rel="noreferrer"
               className="cayo-cart-whatsapp"
@@ -245,7 +245,7 @@ export default function CarritoPage() {
             </div>
 
             <a
-              href="https://wa.me/51992100555"
+              href="https://wa.me/51992110555"
               target="_blank"
               rel="noreferrer"
             >

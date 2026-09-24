@@ -19,7 +19,7 @@ export type Product = {
   active?: boolean;
 };
 
-export const phone = "51992100555";
+export const phone = "51992110555";
 
 export const categories = [
   "Herramientas Manuales",
