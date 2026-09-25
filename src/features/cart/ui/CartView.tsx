@@ -1,170 +1,100 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
-
-import {
-  Minus,
-  Plus,
-  Trash2
-} from "lucide-react";
-
-import {
-  useCart
-} from "@/features/cart";
+import { Minus, Plus, Trash2 } from "lucide-react";
+import { useCart } from "@/features/cart";
 
 export function CartView() {
-
   const {
     items,
-    subtotal,
     removeItem,
     setQuantity
   } = useCart();
 
-  if (!items.length) {
+  if (items.length === 0) {
     return (
-      <div className="empty">
+      <div className="cart-empty-fixed">
+        <h2>Tu carrito está vacío</h2>
+        <p>Agrega productos para comenzar tu pedido.</p>
 
-        <h2>
-          Tu carrito está vacío
-        </h2>
-
-        <p>
-          Agrega productos para comenzar.
-        </p>
-
-        <Link
-          href="/productos"
-          className="btn"
-        >
+        <Link href="/productos" className="btn">
           Ver productos
         </Link>
-
       </div>
     );
   }
 
   return (
-    <div className="cart-layout">
-
-      <div className="cart-items">
-
-        {items.map(
-          (item) => (
-            <article
-              key={item.product.id}
-              className="cart-item"
-            >
-
-              <img
-                src={item.product.img}
-                alt={item.product.name}
-              />
-
-              <div>
-
-                <p className="product-brand">
-                  {item.product.brand}
-                </p>
-
-                <h3>
-                  {item.product.name}
-                </h3>
-
-                <p>
-                  S/ {item.product.price.toFixed(2)}
-                </p>
-
-              </div>
-
-              <div className="qty-control">
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setQuantity(
-                      item.product.id,
-                      item.quantity - 1
-                    )
-                  }
-                >
-                  <Minus size={15} />
-                </button>
-
-                <strong>
-                  {item.quantity}
-                </strong>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setQuantity(
-                      item.product.id,
-                      item.quantity + 1
-                    )
-                  }
-                >
-                  <Plus size={15} />
-                </button>
-
-              </div>
-
-              <strong>
-                S/ {
-                  (
-                    item.product.price *
-                    item.quantity
-                  ).toFixed(2)
-                }
-              </strong>
-
-              <button
-                className="remove-button"
-                type="button"
-                onClick={() =>
-                  removeItem(
-                    item.product.id
-                  )
-                }
-              >
-                <Trash2 size={18} />
-              </button>
-
-            </article>
-          )
-        )}
-
-      </div>
-
-      <aside className="cart-summary">
-
-        <h2>
-          Resumen
-        </h2>
-
-        <div>
-          <span>
-            Subtotal
-          </span>
-
-          <strong>
-            S/ {subtotal.toFixed(2)}
-          </strong>
-        </div>
-
-        <p>
-          El costo de envío se coordina según ubicación.
-        </p>
-
-        <Link
-          href="/checkout"
-          className="btn cart-checkout"
+    <div className="cart-products-fixed">
+      {items.map(({ product, quantity }) => (
+        <article
+          key={product.id}
+          className="cart-product-fixed"
         >
-          Finalizar pedido
-        </Link>
+          <img
+            src={product.img}
+            alt={product.name}
+            className="cart-product-fixed-image"
+          />
 
-      </aside>
+          <div className="cart-product-fixed-info">
+            <span className="cart-product-fixed-brand">
+              {product.brand}
+            </span>
 
+            <strong>
+              {product.name}
+            </strong>
+
+            <span>
+              S/ {product.price.toFixed(2)}
+            </span>
+          </div>
+
+          <div className="cart-product-fixed-quantity">
+            <button
+              type="button"
+              disabled={quantity <= 1}
+              onClick={() =>
+                setQuantity(
+                  product.id,
+                  quantity - 1
+                )
+              }
+            >
+              <Minus size={16} />
+            </button>
+
+            <span>{quantity}</span>
+
+            <button
+              type="button"
+              disabled={quantity >= product.stock}
+              onClick={() =>
+                setQuantity(
+                  product.id,
+                  quantity + 1
+                )
+              }
+            >
+              <Plus size={16} />
+            </button>
+          </div>
+
+          <strong className="cart-product-fixed-total">
+            S/ {(product.price * quantity).toFixed(2)}
+          </strong>
+
+          <button
+            type="button"
+            className="cart-product-fixed-delete"
+            onClick={() => removeItem(product.id)}
+            aria-label="Eliminar producto"
+          >
+            <Trash2 size={18} />
+          </button>
+        </article>
+      ))}
     </div>
   );
 }

@@ -4452,3 +4452,107 @@ body {
 
 /* ===== END CAYO CART PAGE ===== */
 
+
+/* ===== CARRITO PRODUCTOS - FIX FINAL ===== */
+
+.cart-products-fixed {
+  width: 100%;
+  display: grid;
+  gap: 18px;
+}
+
+.cart-product-fixed {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100px minmax(180px, 1fr) auto auto auto;
+  align-items: center;
+  gap: 20px;
+
+  padding: 24px;
+
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  border-radius: 16px;
+}
+
+.cart-product-fixed-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.cart-product-fixed-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cart-product-fixed-info strong {
+  font-size: 18px;
+}
+
+.cart-product-fixed-brand {
+  font-size: 13px;
+  font-weight: 700;
+  color: #666;
+}
+
+.cart-product-fixed-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-product-fixed-quantity button,
+.cart-product-fixed-quantity span {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.cart-product-fixed-quantity button {
+  cursor: pointer;
+}
+
+.cart-product-fixed-total {
+  min-width: 100px;
+  font-size: 16px;
+}
+
+.cart-product-fixed-delete {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: #e53935;
+}
+
+.cart-empty-fixed {
+  padding: 50px;
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+}
+
+@media (max-width: 760px) {
+  .cart-product-fixed {
+    grid-template-columns: 80px 1fr;
+    gap: 15px;
+  }
+
+  .cart-product-fixed-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cart-product-fixed-quantity,
+  .cart-product-fixed-total,
+  .cart-product-fixed-delete {
+    grid-column: 2;
+  }
+}
