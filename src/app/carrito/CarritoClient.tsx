@@ -9,42 +9,42 @@ export function CarritoClient() {
 
   return (
     <>
-        {/* HERO */}
-        <section className="cayo-cart-hero">
-          <div className="wrap cayo-cart-hero-inner">
-            <div>
-              <span className="cayo-cart-eyebrow">
-                FERRETERÍA CAYO
-              </span>
+      {/* HERO */}
+      <section className="cayo-cart-hero">
+        <div className="wrap cayo-cart-hero-inner">
+          <div>
+            <span className="cayo-cart-eyebrow">
+              FERRETERÍA CAYO
+            </span>
 
-              <h1>Tu carrito</h1>
+            <h1>Tu carrito</h1>
 
-              <p>
-                Revisa tus productos, cantidades y precios antes de
-                continuar con tu compra.
-              </p>
+            <p>
+              Revisa tus productos, cantidades y precios antes de
+              continuar con tu compra.
+            </p>
+          </div>
+
+          <div className="cayo-cart-hero-side">
+            <div className="cayo-cart-hero-number">
+              {count}
             </div>
 
-            <div className="cayo-cart-hero-side">
-              <div className="cayo-cart-hero-number">
-                {count}
-              </div>
-
-              <div>
-                <strong>Productos</strong>
-                <span>agregados al carrito</span>
-              </div>
+            <div>
+              <strong>Productos</strong>
+              <span>agregados al carrito</span>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CONTENIDO PRINCIPAL */}
-        <section className="wrap cayo-cart-main">
-          {items.length ? (
-            <div className="cayo-cart-items">
-              <CartView />
-            </div>
-          ) : (
+      {/* CONTENIDO PRINCIPAL */}
+      <section className="wrap cayo-cart-main">
+        {items.length ? (
+          <div className="cayo-cart-items">
+            <CartView />
+          </div>
+        ) : (
           <div className="cayo-cart-empty">
             <div className="cayo-cart-empty-icon">
               <svg
@@ -112,67 +112,71 @@ export function CarritoClient() {
               </div>
             </div>
           </div>
-          )}
+        )}
 
-          {/* RESUMEN */}
-          <aside className="cayo-cart-summary">
-            <div className="cayo-cart-summary-head">
-              <div>
-                <span>RESUMEN</span>
-                <h3>Tu pedido</h3>
-              </div>
-
-              <div className="cayo-cart-summary-count">
-                {count}
-              </div>
+        {/* RESUMEN */}
+        <aside className="cayo-cart-summary">
+          <div className="cayo-cart-summary-head">
+            <div>
+              <span>RESUMEN</span>
+              <h3>Tu pedido</h3>
             </div>
 
-            <div className="cayo-cart-summary-line">
-              <span>Productos</span>
-              <strong>{count}</strong>
+            <div className="cayo-cart-summary-count">
+              {count}
+            </div>
+          </div>
+
+          <div className="cayo-cart-summary-line">
+            <span>Productos</span>
+            <strong>{count}</strong>
+          </div>
+
+          <div className="cayo-cart-summary-line">
+            <span>Subtotal</span>
+            <strong>S/ {subtotal.toFixed(2)}</strong>
+          </div>
+
+          <div className="cayo-cart-summary-line">
+            <span>Delivery</span>
+            <strong>Por coordinar</strong>
+          </div>
+
+          <div className="cayo-cart-summary-total">
+            <div>
+              <span>Total estimado</span>
+              <small>Sin incluir delivery</small>
             </div>
 
-            <div className="cayo-cart-summary-line">
-              <span>Subtotal</span>
-              <strong>S/ {subtotal.toFixed(2)}</strong>
-            </div>
+            <strong>S/ {subtotal.toFixed(2)}</strong>
+          </div>
 
-            <div className="cayo-cart-summary-line">
-              <span>Delivery</span>
-              <strong>Por coordinar</strong>
-            </div>
+          <Link
+            href={items.length ? "/checkout" : "/productos"}
+            className="cayo-cart-summary-button"
+          >
+            {items.length ? "Continuar con el pedido" : "Empezar mi compra"}
+          </Link>
 
-            <div className="cayo-cart-summary-total">
-              <div>
-                <span>Total estimado</span>
-                <small>Sin incluir delivery</small>
-              </div>
 
-              <strong>S/ {subtotal.toFixed(2)}</strong>
-            </div>
+          <a
 
-            <Link
-              href={items.length ? "/checkout" : "/productos"}
-              className="cayo-cart-summary-button"
+
+            href="https://wa.me/51992110555"
+          target="_blank"
+          rel="noreferrer"
+          className="cayo-cart-whatsapp"
             >
-              {items.length ? "Continuar con el pedido" : "Empezar mi compra"}
-            </Link>
+          ¿Necesitas ayuda? Escríbenos
+        </a>
 
-            
-              href="https://wa.me/51992110555"
-              target="_blank"
-              rel="noreferrer"
-              className="cayo-cart-whatsapp"
-            >
-              ¿Necesitas ayuda? Escríbenos
-            </a>
-
-            <p className="cayo-cart-summary-info">
-              Cuando agregues productos, aquí aparecerán las
-              cantidades, subtotales y el total de tu pedido.
-            </p>
-          </aside>
-        </section>
+        <p className="cayo-cart-summary-info">
+          Cuando agregues productos, aquí aparecerán las
+          cantidades, subtotales y el total de tu pedido.
+        </p>
+      </aside>
+    </section >
     </>
   );
 }
+
