@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   verification: { google: "TU_CODIGO_AQUI" },
   title: {
     default:
-      "FerreterÃ­a Cayo",
+      "Ferretería Cayo",
     template:
-      "%s | FerreterÃ­a Cayo"
+      "%s | Ferretería Cayo"
   },
 
   description:
@@ -56,8 +56,11 @@ export default function RootLayout({
         <Analytics />
 
               <CookieBanner />
-      </body>
+              </body>
     </html>
   );
 }
+
+
+
 
