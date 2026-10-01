@@ -1,3 +1,4 @@
+﻿import CookieBanner from "@/components/CookieBanner";
 import type {
   Metadata
 } from "next";
@@ -25,13 +26,13 @@ export const metadata: Metadata = {
   verification: { google: "TU_CODIGO_AQUI" },
   title: {
     default:
-      "Ferretería Cayo",
+      "FerreterÃ­a Cayo",
     template:
-      "%s | Ferretería Cayo"
+      "%s | FerreterÃ­a Cayo"
   },
 
   description:
-    "Herramientas, construcción, pinturas, iluminación y ferretería."
+    "Herramientas, construcciÃ³n, pinturas, iluminaciÃ³n y ferreterÃ­a."
 };
 
 export default function RootLayout({
@@ -54,7 +55,9 @@ export default function RootLayout({
 
         <Analytics />
 
+              <CookieBanner />
       </body>
     </html>
   );
 }
+
