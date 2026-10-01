@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 import {
   contactConfig
@@ -18,8 +18,8 @@ export function Footer() {
             </div>
 
             <p>
-              Herramientas, construcción,
-              pintura y ferretería.
+              Herramientas, construcciÃ³n,
+              pintura y ferreterÃ­a.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export function Footer() {
             </h3>
 
             <Link href="/envios">
-              Envíos
+              EnvÃ­os
             </Link>
 
             <Link href="/contacto">
@@ -73,7 +73,7 @@ export function Footer() {
 
           <div>
             <h3>
-              Información
+              InformaciÃ³n
             </h3>
 
             <Link href="/preguntas-frecuentes">
@@ -85,11 +85,11 @@ export function Footer() {
             </Link>
 
             <Link href="/garantia">
-              Garantía
+              GarantÃ­a
             </Link>
 
             <Link href="/terminos">
-              Términos
+              TÃ©rminos
             </Link>
 
             <Link href="/privacidad">
@@ -104,7 +104,7 @@ export function Footer() {
         </div>
 
         <div className="footer-copy">
-          © 2026 Ferretería Cayo
+          Â© 2026 FerreterÃ­a Cayo
         </div>
 
       </footer>
