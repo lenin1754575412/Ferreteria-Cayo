@@ -37,6 +37,8 @@
   ],
   "exclude": [
     "node_modules",
-    "backup-*"
+    "backup-*",
+    "backup-sqlite-*",
+    "Ferreteria-Cayo"
   ]
 }
