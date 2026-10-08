@@ -79,7 +79,7 @@ export function ProductCard({
             : `${product.stock} disponibles`}
         </p>
 
-        <ProductPrice
+        <ProductPrice priceUsd={product.priceUsd}
           price={product.price}
           oldPrice={product.oldPrice}
         />

@@ -1,4 +1,5 @@
-﻿import CookieBanner from "@/components/CookieBanner";
+import { AccountBar } from "@/features/account/ui/AccountBar";
+import CookieBanner from "@/components/CookieBanner";
 import type {
   Metadata
 } from "next";
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body>
 
         <CartProvider>
+          <AccountBar />
 
           <DigitalAnimations />
 

@@ -1,0 +1,5 @@
+'use client';
+export function PersonFields({value,onChange,roles=false}:{value:any;onChange:(v:any)=>void;roles?:boolean}){
+ const field=(key:string,label:string,type='text')=><label key={key}>{label}<input type={type} value={value[key]||''} onChange={e=>onChange({...value,[key]:e.target.value})} required maxLength={key==='email'?254:50}/></label>;
+ return <><div className="form-grid">{field('names','Nombres')}{field('surnames','Apellidos')}{field('birthDate','Fecha de nacimiento','date')}<label>Género<select value={value.gender||''} onChange={e=>onChange({...value,gender:e.target.value})} required><option value="">Selecciona</option><option>Masculino</option><option>Femenino</option></select></label>{field('phone','Teléfono (+51 y 9 dígitos)','tel')}{field('email','Correo','email')}{roles?<label>Rol<select value={value.role||'cliente'} onChange={e=>onChange({...value,role:e.target.value})}><option value="cliente">Cliente</option><option value="vendedor">Vendedor</option><option value="admin">Administrador</option></select></label>:null}{roles&&value.role&&value.role!=='cliente'?field('employeeCode','Código de empleado'):null}</div></>;
+}

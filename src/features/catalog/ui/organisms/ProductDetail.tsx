@@ -32,6 +32,7 @@ export function ProductDetail({
     <div className="product-detail">
 
       <div className="product-detail-image">
+        <div className="product-gallery">{(product.images || []).slice(1).map((src,index)=><img key={index} src={src} alt={`${product.name} vista ${index+2}`} />)}</div>
 
         <img
           src={product.img}
@@ -50,6 +51,8 @@ export function ProductDetail({
           {product.name}
         </h1>
 
+        <p>Categoría: {product.cat} · Precio USD: $ {(product.priceUsd ?? 0).toFixed(2)}</p>
+        <p>Peso: {product.weight ?? 0} kg · Dimensiones: {product.dimensions || "Por completar"} · Garantía: {product.warranty || "Por completar"}</p>
         <p className="sku">
           SKU: {product.sku}
         </p>

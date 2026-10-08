@@ -1,81 +1,11 @@
-"use client";
-
-import {
-  useEffect,
-  useState
-} from "react";
-
-export function OrderHistory() {
-
-  const [orders, setOrders] =
-    useState<any[]>([]);
-
-  useEffect(() => {
-    try {
-      setOrders(
-        JSON.parse(
-          localStorage.getItem(
-            "cayo-orders"
-          ) ?? "[]"
-        )
-      );
-    } catch {}
-  }, []);
-
-  if (!orders.length) {
-    return (
-      <div className="empty">
-
-        <h2>
-          Todavía no tienes pedidos
-        </h2>
-
-        <p>
-          Los pedidos realizados desde este navegador aparecerán aquí.
-        </p>
-
-      </div>
-    );
-  }
-
-  return (
-    <div className="order-history">
-
-      {orders.map(
-        (order) => (
-          <article
-            key={order.id}
-            className="order-card"
-          >
-            <div>
-              <strong>
-                {order.id}
-              </strong>
-
-              <p>
-                {
-                  new Date(
-                    order.createdAt
-                  ).toLocaleString("es-PE")
-                }
-              </p>
-            </div>
-
-            <span>
-              {order.status}
-            </span>
-
-            <strong>
-              S/ {
-                Number(
-                  order.total
-                ).toFixed(2)
-              }
-            </strong>
-          </article>
-        )
-      )}
-
-    </div>
-  );
+'use client';
+import {useEffect,useState,FormEvent} from 'react';import Link from 'next/link';import {OrderEditor} from './OrderEditor';
+export function OrderHistory({manage=false}:{manage?:boolean}){
+ const [orders,setOrders]=useState<any[]>([]),[products,setProducts]=useState<any[]>([]),[filters,setFilters]=useState<any>({}),[error,setError]=useState(''),[busy,setBusy]=useState(true),[editing,setEditing]=useState<any>(null),[user,setUser]=useState<any>(null);
+ async function load(current:any){setBusy(true);setError('');try{const qs=new URLSearchParams(Object.entries(current).filter(([,v])=>v).map(([k,v])=>[k,String(v)]));const r=await fetch('/api/orders?'+qs);const d=await r.json();if(!r.ok)throw Error(d.error);setOrders(d.orders);}catch(e:any){setError(e.message);}finally{setBusy(false);}}
+ useEffect(()=>{let active=true;fetch('/api/auth/me').then(r=>r.json()).then(d=>{if(active)setUser(d.user);}).catch(()=>{});load({});return()=>{active=false;};},[]);
+ async function edit(order:any){try{const r=await fetch('/api/catalog');const d=await r.json();if(!r.ok)throw Error(d.error);setProducts(d.products);setEditing(order);}catch(e:any){setError(e.message);}}
+ async function action(order:any,status?:string){if(!status&&!confirm('¿Cancelar este pedido y devolver el stock?'))return;try{const r=await fetch('/api/orders/'+encodeURIComponent(order.id),{method:status?'PATCH':'DELETE',headers:{'Content-Type':'application/json'},...(status?{body:JSON.stringify({deliveryStatus:status})}:{})});const d=await r.json();if(!r.ok)throw Error(d.error);await load(filters);}catch(e:any){setError(e.message);}}
+ const search=(e:FormEvent)=>{e.preventDefault();load(filters);};
+ return <section className="cayo-card"><h2>{manage?'Gestión de pedidos':'Mis pedidos'}</h2><form className="form-grid" onSubmit={search}><label>Cliente, producto o número<input value={filters.q||''} onChange={e=>setFilters({...filters,q:e.target.value})}/></label><label>Fecha<input type="date" value={filters.date||''} onChange={e=>setFilters({...filters,date:e.target.value})}/></label><label>Pago<select value={filters.payment||''} onChange={e=>setFilters({...filters,payment:e.target.value})}><option value="">Todos</option><option>Sin pago</option><option>En cuotas</option><option>Pago confirmado</option></select></label><label>Entrega<select value={filters.status||''} onChange={e=>setFilters({...filters,status:e.target.value})}><option value="">Todos</option>{['Pendiente confirmación de pago','Preparando envío','Enviado','Entregado','Cancelado'].map(s=><option key={s}>{s}</option>)}</select></label><button className="btn">Buscar</button></form>{error?<p role="alert" className="form-error">{error} <Link href="/login">Iniciar sesión</Link></p>:null}{busy?<p>Cargando…</p>:orders.length===0?<p>No hay pedidos para esta consulta.</p>:null}{editing?<OrderEditor order={editing} products={products} onClose={()=>setEditing(null)} onSaved={()=>{setEditing(null);load(filters);}}/>:null}{orders.map(order=><article className="cayo-card" key={order.id}><h3>{order.id} · S/ {order.total.toFixed(2)}</h3><p>{order.customer?.names} {order.customer?.surnames} · {new Date(order.createdAt).toLocaleString('es-PE')}</p><p>Pago: {order.paymentStatus} · Entrega: {order.status}</p><details><summary>Detalles del pedido</summary><div className="table-scroll"><table><thead><tr><th>Producto</th><th>SKU</th><th>Cantidad</th><th>Precio</th><th>Importe</th></tr></thead><tbody>{order.items.map((i:any)=><tr key={i.productId}><td>{i.name}</td><td>{i.sku}</td><td>{i.quantity}</td><td>S/ {i.price.toFixed(2)}</td><td>S/ {(i.price*i.quantity).toFixed(2)}</td></tr>)}</tbody></table></div><p>Subtotal: S/ {order.subtotal.toFixed(2)} · Descuentos: S/ {order.discount.toFixed(2)} · Total: S/ {order.total.toFixed(2)}</p><p>Destino: {order.department}, {order.province}, {order.district}. {order.address} ({order.delivery})</p><p>Vendedor: {order.seller?order.seller.names+' '+order.seller.surnames:'Compra directa del cliente'}</p><p>Notas: {order.notes||'Sin notas'}</p>{order.installments.map((i:any,index:number)=><p key={index}>Cuota: S/ {i.amount.toFixed(2)} · Fecha: {i.date}</p>)}<p>Códigos: {order.discounts.map((d:any)=>d.code).join(', ')||'Ninguno'}</p></details>{order.status==='Pendiente confirmación de pago'?<div className="button-row"><button onClick={()=>edit(order)}>Actualizar</button><button onClick={()=>action(order)}>Cancelar pedido</button></div>:null}{user?.role!=='cliente'&&user?['Pendiente confirmación de pago','Preparando envío','Enviado'].includes(order.status)?<button onClick={()=>action(order,order.status==='Pendiente confirmación de pago'?'Preparando envío':order.status==='Preparando envío'?'Enviado':'Entregado')}>Avanzar entrega</button>:null:null}</article>)}</section>;
 }

@@ -8,6 +8,10 @@ export type Product = {
   cat: string;
   brand: string;
   price: number;
+  priceUsd?: number;
+  weight?: number;
+  dimensions?: string;
+  warranty?: string;
   oldPrice?: number;
   stock: number;
   img: string;

@@ -24,3 +24,17 @@ src/app/envios/page-backup-*.tsx
 src/app/marcas/page-backup-*.tsx*.mongodb-backup
 
 *.backup-*
+
+/data/
+
+/backup-sqlite-*/
+
+/coverage/
+
+/Ferreteria-Cayo/
+
+*.antes-genero-*
+
+/.env*
+
+!/.env.example
