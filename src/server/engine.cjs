@@ -51,7 +51,7 @@ function password(value) { const s=String(value??''); if(s.length<6||s.length>50
 function person(body,role='cliente') {
  const names=text(body.names,'Nombres',3,50), surnames=text(body.surnames,'Apellidos',3,50);
  if(!/^[\p{L} ]+$/u.test(names)||!/^[\p{L} ]+$/u.test(surnames)) fail('Nombres y apellidos solo admiten letras y espacios.');
- const birthDate=String(body.birthDate??''); const date=new Date(birthDate+'T12:00:00Z');
+ const birthDate=String(body.birthDate??'').trim(); const date=new Date(birthDate+'T12:00:00Z');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(birthDate)||!Number.isFinite(date.getTime())||date.toISOString().slice(0,10)!==birthDate) fail('Fecha de nacimiento inválida.');
  const cutoff=new Date(); cutoff.setUTCFullYear(cutoff.getUTCFullYear()-18); if(date>cutoff) fail('Debes tener al menos 18 años.');
  const rawGender=String(body.gender??'').normalize('NFKC').replace(/[\s\u200B-\u200D\uFEFF]/g,'').toLowerCase(); const gender=rawGender==='masculino'||rawGender==='1'?'Masculino':rawGender==='femenino'||rawGender==='2'?'Femenino':null; if(!gender) fail('Género: elige Masculino (1) o Femenino (2).');

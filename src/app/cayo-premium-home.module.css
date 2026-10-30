@@ -1,0 +1,425 @@
+.pagina {
+  --oro: #ffc400;
+  --oscuro: #06111a;
+  min-height: 100vh;
+  background: #07111a;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.pagina * { box-sizing: border-box; }
+
+.pagina a { text-decoration: none; color: inherit; }
+
+.superior {
+  min-height: 51px;
+  padding: 0 3.2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: linear-gradient(110deg,#03080d,#0c1c28);
+  border-bottom: 1px solid rgba(255,196,0,.3);
+}
+
+.beneficios,.cuenta {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+}
+
+.beneficios span {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  padding-right: 18px;
+  border-right: 1px solid #39414a;
+}
+
+.beneficios span:last-child { border-right: none; }
+.beneficios b { color: var(--oro); font-size: 21px; margin-right: 8px; }
+
+.cuenta { font-size: 13px; font-weight: 700; white-space: nowrap; }
+.redes { font-size: 19px; margin-right: 14px; }
+.registro {
+  padding: 14px 21px;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#ffe06b,#ffb900);
+  color: #07111a !important;
+}
+
+.cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 23px 3.2%;
+  min-height: 112px;
+  background: linear-gradient(110deg,#030a12,#091c28,#030910);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex-shrink: 0;
+}
+
+.logoCasa { font-size: 66px; line-height: 1; color: var(--oro); }
+.logo strong { display: block; font-size: 45px; letter-spacing: -2px; line-height: 1; }
+.logo small { display: block; font-size: 13px; font-weight: 900; color: var(--oro); margin-top: 5px; }
+.logo em { display: block; font-size: 8px; font-style: normal; font-weight: 800; margin-top: 8px; }
+
+.buscador {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 860px;
+  min-width: 180px;
+  height: 62px;
+  border: 1px solid #b6c2c9;
+  border-radius: 13px;
+  overflow: hidden;
+  background: #fff;
+  color: #06111a;
+}
+
+.lupa { padding: 0 15px; font-size: 30px; }
+.buscador input {
+  border: 0;
+  outline: 0;
+  flex: 1;
+  min-width: 60px;
+  font-size: 16px;
+  background: transparent;
+  color: #091722;
+}
+.buscador select {
+  max-width: 180px;
+  padding: 12px;
+  border: 0;
+  border-left: 1px solid #d9dce0;
+  outline: 0;
+  background: #fff;
+  color: #091722;
+}
+.buscador button {
+  height: 100%;
+  min-width: 122px;
+  border: 0;
+  background: linear-gradient(135deg,#ffdb57,#ffb900);
+  color: #06111a;
+  font-weight: 900;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.contacto,.carrito { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.contactoIcono {
+  width: 53px;
+  height: 53px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--oro);
+  color: #06111a;
+  font-size: 28px;
+}
+.contacto small,.carrito small { display: block; font-size: 12px; }
+.contacto strong { display: block; color: var(--oro); font-size: 22px; white-space: nowrap; }
+.carrito span:first-child { font-size: 31px; }
+.carrito strong { display: block; font-size: 15px; margin-top: 4px; }
+
+.navegacion {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 4px;
+  padding: 0 2.4%;
+  min-height: 65px;
+  background: linear-gradient(180deg,#0b1b29,#030a12);
+  border-top: 1px solid #26303a;
+  border-bottom: 1px solid #9c7800;
+}
+
+.navegacion a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 15px 14px;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: background .25s,color .25s,transform .25s;
+}
+.navegacion a:hover { color: var(--oro); background: #152532; }
+.navegacion .activo {
+  background: linear-gradient(135deg,#ffe174,#ffb900);
+  color: #07111a;
+  border-radius: 9px 9px 0 0;
+  box-shadow: 0 0 22px rgba(255,196,0,.35);
+}
+.hot {
+  padding: 4px 5px;
+  border-radius: 4px;
+  background: #ed2020;
+  color: #fff;
+  font-size: 10px;
+}
+.navegacion .promociones {
+  background: linear-gradient(135deg,#ff4535,#d40b0b);
+  border-radius: 10px;
+  margin: 5px 0;
+  color: #fff;
+  padding: 12px 19px;
+}
+.navegacion .promociones:hover { background: #e71919; color: white; }
+
+.hero {
+  position: relative;
+  min-height: 455px;
+  background-image:
+    linear-gradient(90deg,
+      rgba(2,9,15,.98) 0%,
+      rgba(2,9,15,.93) 26%,
+      rgba(2,9,15,.53) 51%,
+      rgba(2,9,15,.08) 83%),
+    url('/cayo-premium/hero-amarillo.jpg');
+  background-size: cover;
+  background-position: center 48%;
+  border-bottom: 2px solid var(--oro);
+}
+
+.heroContenido {
+  position: relative;
+  z-index: 2;
+  width: min(900px,75%);
+  padding: 49px 4.4% 45px;
+  animation: aparecer .8s ease-out both;
+}
+.etiqueta {
+  color: var(--oro);
+  font-weight: 900;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin: 0 0 19px;
+}
+.hero h1 {
+  font-size: clamp(32px,3.4vw,58px);
+  line-height: 1.07;
+  font-weight: 950;
+  letter-spacing: -1.5px;
+  margin: 0;
+  text-shadow: 0 5px 20px #0008;
+}
+.hero h1 span { display: block; color: var(--oro); margin-top: 5px; }
+.descripcion {
+  margin: 17px 0 22px;
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 630px;
+}
+.ventajas {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 23px 0 28px;
+}
+.ventajas span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.ventajas b { color: var(--oro); font-size: 28px; }
+.acciones { display: flex; flex-wrap: wrap; gap: 15px; }
+.acciones a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 14px 23px;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 15px;
+  transition: transform .25s,box-shadow .25s;
+}
+.acciones a:hover { transform: translateY(-4px); }
+.botonOro {
+  color: #06111a !important;
+  background: linear-gradient(135deg,#ffe16b,#ffbb00);
+  box-shadow: 0 5px 22px #ffbb0040;
+}
+.botonOscuro { border: 1px solid #d4d9dc; background: #06111bd9; }
+
+.categorias {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 215px;
+  display: grid;
+  grid-template-rows: repeat(4,1fr);
+  gap: 5px;
+  padding: 14px 12px;
+  background: linear-gradient(100deg,#050b11cc,#08131dee);
+  border-left: 1px solid #a97e00;
+  transform: skewX(-5deg);
+}
+.categoria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #9d7500;
+  border-radius: 15px;
+  background: linear-gradient(130deg,#0b1724e8,#24303baf);
+  transition: transform .25s,box-shadow .25s;
+}
+.categoria:hover { transform: scale(1.04); box-shadow: 0 0 20px #ffbe0055; }
+.categoriaIcono { color: var(--oro); font-size: 31px; }
+.categoria strong { font-size: 14px; }
+
+.puntos {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  display: flex;
+  gap: 7px;
+}
+.puntos span { width: 9px; height: 9px; border-radius: 50%; background: #9b9ea4; }
+.puntos .puntoActivo { background: var(--oro); width: 22px; border-radius: 10px; }
+
+.marcas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 1.7%;
+  padding: 17px 20px;
+  background: #f4f6f8;
+  color: #0b1b28;
+  border-radius: 0 0 15px 15px;
+}
+.marcasTitulo { flex: 0 0 245px; }
+.marcasTitulo small { font-size: 11px; letter-spacing: 3px; color: #647180; }
+.marcasTitulo h2 { font-size: 20px; margin: 5px 0; }
+.marcasTitulo p { font-size: 12px; color: #5f6975; margin: 0; }
+.marcasLista { display: flex; flex: 1; gap: 10px; min-width: 0; overflow: hidden; }
+.marca {
+  display: grid;
+  place-items: center;
+  flex: 1;
+  min-width: 105px;
+  min-height: 76px;
+  border: 1px solid #dce1e6;
+  border-radius: 12px;
+  background: #fff;
+  color: #df252b !important;
+  font-size: clamp(16px,1.4vw,24px);
+  font-weight: 950;
+  font-style: italic;
+  transition: transform .2s;
+}
+.marca:hover { transform: translateY(-4px); }
+.marcaDorada {
+  background: linear-gradient(135deg,#ffdd52,#ffc400);
+  color: #0b111a !important;
+}
+.flecha { border: 0; background: transparent; font-size: 38px; cursor: pointer; color: #06111a; }
+
+.banners {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+  padding: 14px 1.7% 22px;
+}
+.banner {
+  min-height: 145px;
+  padding: 20px 22px;
+  border: 1px solid #8e7855;
+  border-radius: 13px;
+  background-size: cover;
+  background-position: center;
+  transition: transform .25s,box-shadow .25s;
+}
+.banner:hover { transform: translateY(-4px); box-shadow: 0 12px 25px #0007; }
+.banner h3 { font-size: 20px; line-height: 1.1; margin: 0 0 8px; }
+.banner p { font-size: 12px; margin: 0 0 14px; }
+.banner span {
+  display: inline-block;
+  background: var(--oro);
+  color: #06111a;
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 900;
+}
+.bannerHerramientas {
+  background-image: linear-gradient(90deg,#06111af2,#06111a55),url('/cayo-premium/hero-amarillo.jpg');
+}
+.bannerConstruccion {
+  background-image: linear-gradient(90deg,#06111af2,#06111a88),url('/cayo-premium/hero-amarillo.jpg');
+}
+.bannerPinturas {
+  background-image: linear-gradient(90deg,#06111af2,#06111a88),url('/cayo-premium/hero-amarillo.jpg');
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:1450px) {
+  .beneficios { gap: 9px; }
+  .beneficios span { font-size: 11px; padding-right: 9px; }
+  .cabecera { gap: 14px; }
+  .contacto strong { font-size: 17px; }
+  .carrito { display: none; }
+  .navegacion a { font-size: 12px; padding: 14px 9px; }
+  .marcasTitulo { flex-basis: 200px; }
+}
+
+@media(max-width:1100px) {
+  .superior { flex-wrap: wrap; padding: 10px 3%; }
+  .cabecera { flex-wrap: wrap; }
+  .buscador { order: 3; max-width: none; flex-basis: 100%; }
+  .navegacion { overflow-x: auto; justify-content: flex-start; }
+  .navegacion a { flex-shrink: 0; }
+  .heroContenido { width: 78%; }
+  .categorias { width: 155px; }
+  .marcasTitulo { flex-basis: 155px; }
+  .marca { min-width: 100px; }
+}
+
+@media(max-width:700px) {
+  .beneficios { flex-wrap: wrap; }
+  .beneficios span { border: none; }
+  .cuenta { flex-wrap: wrap; }
+  .redes { display: none; }
+  .contacto { display: none; }
+  .logo strong { font-size: 37px; }
+  .logoCasa { font-size: 50px; }
+  .buscador select { display: none; }
+  .buscador button { min-width: 85px; }
+  .hero { min-height: 570px; background-position: 58% center; }
+  .heroContenido { width: 100%; padding: 46px 6%; }
+  .hero h1 { font-size: clamp(30px,7vw,43px); }
+  .categorias { display: none; }
+  .ventajas { gap: 12px; }
+  .marcas { flex-wrap: wrap; }
+  .marcasTitulo { flex-basis: 100%; }
+  .marcasLista { overflow-x: auto; }
+  .banners { grid-template-columns: 1fr; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .heroContenido { animation: none; }
+  .pagina * { transition: none !important; }
+}

@@ -1,27 +1,200 @@
 "use client";
-import './cayo-menu-global.css';
-import { useState } from "react";
+
 import Link from "next/link";
-import { Search, ShoppingCart, Truck, ShieldCheck, Headphones, ArrowRight, ChevronLeft, ChevronRight, Drill, PaintRoller, Lightbulb, Droplets, HardHat, Blocks, Menu, Tag, PackageCheck, Instagram, Facebook, Youtube } from "lucide-react";
-import styles from "./page.module.css";
-const brands = ["3M","BOSCH","CPP","DEWALT","Makita","PHILIPS","Sika","TRUPER","Fischer","STANLEY"];
-const categories = [
- {title:"Herramientas",sub:"Equipos para cada trabajo",image:"https://images.unsplash.com/photo-1504148455328-c376907d081c?w=800&q=85",href:"/productos",icon:Drill},
- {title:"Construcción",sub:"Materiales de alta calidad",image:"https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&q=85",href:"/subcategorias/materiales-de-construccion",icon:Blocks},
- {title:"Pinturas",sub:"Renueva cada espacio",image:"https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=85",href:"/colores-pintura",icon:PaintRoller},
- {title:"Iluminación",sub:"Soluciones para hogar y negocio",image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&q=85",href:"/productos",icon:Lightbulb},
- {title:"Sanitario",sub:"Todo para tus instalaciones",image:"https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=85",href:"/productos",icon:Droplets},
- {title:"Seguridad",sub:"Protección en cada proyecto",image:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=85",href:"/productos",icon:HardHat}
+import { useState } from "react";
+import styles from "./cayo-premium-home.module.css";
+
+const marcas = ["3M", "BOSCH", "DEWALT", "Makita", "PHILIPS", "Sika", "TRUPER"];
+
+const categorias = [
+  { nombre: "Hogar", icono: "⌂", href: "/productos", clase: "hogar" },
+  { nombre: "Pinturas", icono: "▧", href: "/productos", clase: "pinturas" },
+  { nombre: "Herramientas", icono: "⚒", href: "/herramientas", clase: "herramientas" },
+  { nombre: "Construcción", icono: "▥", href: "/productos", clase: "construccion" },
 ];
-export default function DisenoCayo(){
- const [offset,setOffset]=useState(0); const [search,setSearch]=useState(""); const [menu,setMenu]=useState(false);
- const whatsapp="https://wa.me/51992110555";
- return <main className={styles.site}>
-  <div className={styles.utility}><div className={styles.wrap}><span className={styles.social}><Facebook size={14}/><Instagram size={14}/><Youtube size={14}/></span><span>🚚 ENVÍOS A TODO EL PERÚ　 |　 🛡 CALIDAD GARANTIZADA　 |　 ATENCIÓN PERSONALIZADA</span><span>¿Necesitas ayuda?　<b>992 110 555</b></span></div></div>
-  <header className={styles.header}><div className={styles.wrap}><Link href="/" className={styles.logo}>CAYO<small>FERRETERÍA · HERRAMIENTAS · CONSTRUCCIÓN</small></Link><form className={styles.search} action="/productos"><Search size={19}/><input name="q" placeholder="¿Qué estás buscando?" value={search} onChange={e=>setSearch(e.target.value)}/><button>Buscar</button></form><button className={styles.mobileMenu} onClick={()=>setMenu(!menu)} aria-label="Abrir menú"><Menu/></button><nav className={`${styles.nav} ${menu?styles.navOpen:""}`}><Link href="/">Inicio</Link><Link href="/productos">Productos</Link><Link href="/promociones">Ofertas</Link><Link href="/subcategorias">Herramientas</Link><Link href="/marcas">Marcas</Link><Link href="/envios">Envíos</Link><Link href="/blog">Blog</Link><Link href="/carrito"><ShoppingCart size={17}/> Carrito</Link></nav></div></header>
-  <section className={styles.hero}><div className={styles.heroOverlay}/><div className={styles.wrap}><div className={styles.heroCopy}><div className={styles.eyebrow}>TU PROYECTO EMPIEZA AQUÍ</div><h1>Las mejores marcas <em>para grandes proyectos</em></h1><p>Herramientas, construcción, pinturas, iluminación, sanitario y ferretería general.</p><div className={styles.heroBenefits}><span><Truck/> Envíos a todo el Perú</span><span><ShieldCheck/> Productos originales</span><span><Headphones/> Asesoría especializada</span></div><div className={styles.actions}><Link className={styles.primary} href="/productos">Ver catálogo completo <ArrowRight size={18}/></Link><Link className={styles.secondary} href="/promociones"><Tag size={18}/> Ver ofertas</Link></div></div><aside className={styles.trust}><h3>✦ Calidad que construye confianza</h3><p>✓ Marcas líderes</p><p>✓ Stock según disponibilidad</p><p>✓ Precios competitivos</p><p>✓ Atención personalizada</p><Link href="/marcas">MÁS DE 21 MARCAS <ArrowRight size={16}/></Link></aside></div></section>
-  <section className={styles.brandSection}><div className={styles.brandLabel}><small>NUESTRAS</small><strong>MARCAS DESTACADAS</strong><span>Calidad y confianza en cada proyecto</span></div><button aria-label="Anterior" onClick={()=>setOffset((offset+brands.length-1)%brands.length)}><ChevronLeft/></button><div className={styles.brandRail}>{Array.from({length:8},(_,i)=>brands[(offset+i)%brands.length]).map((b,i)=><Link href="/marcas" key={i} className={styles.brandCard}>{b}</Link>)}</div><button aria-label="Siguiente" onClick={()=>setOffset((offset+1)%brands.length)}><ChevronRight/></button></section>
-  <section className={styles.catalog}><div className={styles.wrap}><div className={styles.sectionTop}><div><div className={styles.eyebrow}>EXPLORA POR CATEGORÍA</div><h2>Todo lo que necesitas <em>en un solo lugar</em></h2></div><Link href="/productos">Ver todas las categorías <ArrowRight size={18}/></Link></div><div className={styles.categoryGrid}>{categories.map(c=>{const Icon=c.icon;return <Link href={c.href} className={styles.category} key={c.title} style={{backgroundImage:`linear-gradient(0deg,rgba(5,17,24,.97),rgba(5,17,24,.08) 75%),url('${c.image}')`}}><span className={styles.categoryIcon}><Icon size={25}/></span><div><h3>{c.title}</h3><p>{c.sub}</p></div><span className={styles.roundArrow}><ArrowRight size={17}/></span></Link>})}</div><div className={styles.featureBar}><div><ShieldCheck/><span><b>Marcas reconocidas</b><small>Calidad y confianza</small></span></div><div><PackageCheck/><span><b>Stock visible</b><small>Consulta disponibilidad</small></span></div><div><Truck/><span><b>Delivery y recojo</b><small>Consulta cobertura</small></span></div><div><Headphones/><span><b>Asesoría por WhatsApp</b><small>Te orientamos en tu compra</small></span></div></div></div></section>
-  <section className={styles.cta}><div className={styles.wrap}><div><div className={styles.eyebrow}>¿PLANEAS UN PROYECTO?</div><h2>Te ayudamos a encontrar <em>la mejor opción</em></h2><p>Cuéntanos tu proyecto y te asesoramos según tu necesidad, presupuesto y tipo de obra.</p></div><div className={styles.actions}><a className={styles.primary} href={whatsapp} target="_blank" rel="noreferrer">Consultar por WhatsApp <ArrowRight size={17}/></a><Link className={styles.secondary} href="/productos">Ver catálogo <ArrowRight size={17}/></Link></div></div></section>
- </main>
+
+export default function Home() {
+  const [busqueda, setBusqueda] = useState("");
+  const [marcaInicio, setMarcaInicio] = useState(0);
+
+  function buscar(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const q = busqueda.trim();
+    if (q) {
+      window.location.href = "/productos?buscar=" + encodeURIComponent(q);
+    } else {
+      window.location.href = "/productos";
+    }
+  }
+
+  const marcasVisibles = [
+    ...marcas.slice(marcaInicio),
+    ...marcas.slice(0, marcaInicio),
+  ];
+
+  return (
+    <main id="cayo-home-premium-v2" className={styles.pagina}>
+      <div className={styles.superior}>
+        <div className={styles.beneficios}>
+          <span><b>⌖</b> Trujillo, La Libertad</span>
+          <span><b>▣</b> Envíos a todo el Perú</span>
+          <span><b>⬡</b> Calidad garantizada</span>
+          <span><b>♧</b> Atención personalizada</span>
+        </div>
+        <div className={styles.cuenta}>
+          <span className={styles.redes}>f　◎　▶　♪</span>
+          <Link href="/login">♙ Iniciar sesión</Link>
+          <Link className={styles.registro} href="/registro">Registrarme</Link>
+        </div>
+      </div>
+
+      <header className={styles.cabecera}>
+        <Link href="/" className={styles.logo}>
+          <span className={styles.logoCasa}>⌂</span>
+          <span>
+            <strong>CAYO</strong>
+            <small>F E R R E T E R Í A</small>
+            <em>HERRAMIENTAS · CONSTRUCCIÓN · HOGAR</em>
+          </span>
+        </Link>
+
+        <form className={styles.buscador} onSubmit={buscar}>
+          <span className={styles.lupa}>⌕</span>
+          <input
+            aria-label="Buscar productos"
+            placeholder="¿Qué estás buscando?"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+          <select aria-label="Categoría de búsqueda" defaultValue="all">
+            <option value="all">Todas las categorías</option>
+            <option value="herramientas">Herramientas</option>
+            <option value="pinturas">Pinturas</option>
+            <option value="construccion">Construcción</option>
+          </select>
+          <button type="submit">Buscar</button>
+        </form>
+
+        <div className={styles.contacto}>
+          <span className={styles.contactoIcono}>☎</span>
+          <span><small>¿Necesitas ayuda?</small><strong>992 110 555</strong></span>
+        </div>
+
+        <Link href="/carrito" className={styles.carrito}>
+          <span>🛒</span>
+          <span><small>Mi carrito</small><strong>Ver carrito</strong></span>
+        </Link>
+      </header>
+
+      <nav className={styles.navegacion} aria-label="Navegación principal">
+        <Link className={styles.activo} href="/">⌂　Inicio</Link>
+        <Link href="/productos">◇　Productos</Link>
+        <Link href="/ofertas">◆　Ofertas <span className={styles.hot}>HOT</span></Link>
+        <Link href="/herramientas">⚒　Herramientas</Link>
+        <Link href="/productos">▥　Construcción</Link>
+        <Link href="/marcas">☆　Marcas</Link>
+        <Link href="/envios">▣　Envíos</Link>
+        <Link href="/blog">▤　Blog</Link>
+        <Link className={styles.promociones} href="/promociones">🔥 Promociones</Link>
+      </nav>
+
+      <section className={styles.hero}>
+        <div className={styles.heroContenido}>
+          <p className={styles.etiqueta}>━━　TU PROYECTO EMPIEZA AQUÍ</p>
+          <h1>
+            LAS MEJORES MARCAS
+            <span>PARA GRANDES PROYECTOS</span>
+          </h1>
+          <p className={styles.descripcion}>
+            Herramientas, construcción, pinturas, iluminación,
+            sanitario y ferretería general.
+          </p>
+
+          <div className={styles.ventajas}>
+            <span><b>▣</b> Envíos a<br />todo el Perú</span>
+            <span><b>⬡</b> Productos<br />originales</span>
+            <span><b>♧</b> Asesoría<br />especializada</span>
+            <span><b>▤</b> Pagos seguros<br />y múltiples métodos</span>
+          </div>
+
+          <div className={styles.acciones}>
+            <Link href="/productos" className={styles.botonOro}>
+              🛒　Ver catálogo completo　 →
+            </Link>
+            <Link href="/ofertas" className={styles.botonOscuro}>
+              ◇　Ver ofertas　 →
+            </Link>
+          </div>
+        </div>
+
+        <aside className={styles.categorias}>
+          {categorias.map((cat) => (
+            <Link
+              key={cat.nombre}
+              href={cat.href}
+              className={`${styles.categoria} ${styles[cat.clase]}`}
+            >
+              <span className={styles.categoriaIcono}>{cat.icono}</span>
+              <strong>{cat.nombre}</strong>
+            </Link>
+          ))}
+        </aside>
+
+        <div className={styles.puntos}>
+          <span className={styles.puntoActivo}></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section className={styles.marcas}>
+        <div className={styles.marcasTitulo}>
+          <small>NUESTRAS MARCAS</small>
+          <h2>Marcas destacadas</h2>
+          <p>Calidad y confianza en cada proyecto</p>
+        </div>
+        <button
+          type="button"
+          className={styles.flecha}
+          aria-label="Marcas anteriores"
+          onClick={() => setMarcaInicio((marcaInicio + marcas.length - 1) % marcas.length)}
+        >‹</button>
+        <div className={styles.marcasLista}>
+          {marcasVisibles.map((marca) => (
+            <Link
+              href="/marcas"
+              key={marca}
+              className={`${styles.marca} ${marca === "DEWALT" ? styles.marcaDorada : ""}`}
+            >
+              {marca}
+            </Link>
+          ))}
+        </div>
+        <button
+          type="button"
+          className={styles.flecha}
+          aria-label="Marcas siguientes"
+          onClick={() => setMarcaInicio((marcaInicio + 1) % marcas.length)}
+        >›</button>
+      </section>
+
+      <section className={styles.banners}>
+        <Link href="/herramientas" className={`${styles.banner} ${styles.bannerHerramientas}`}>
+          <h3>HERRAMIENTAS<br />CON POTENCIA</h3>
+          <p>Para resultados profesionales</p>
+          <span>Ver herramientas　→</span>
+        </Link>
+        <Link href="/productos" className={`${styles.banner} ${styles.bannerConstruccion}`}>
+          <h3>MATERIALES<br />DE CONSTRUCCIÓN</h3>
+          <p>Calidad para obras seguras</p>
+          <span>Ver materiales　→</span>
+        </Link>
+        <Link href="/productos" className={`${styles.banner} ${styles.bannerPinturas}`}>
+          <h3>PINTURAS<br />QUE TRANSFORMAN</h3>
+          <p>Dale color a tus proyectos</p>
+          <span>Ver pinturas　→</span>
+        </Link>
+      </section>
+    </main>
+  );
 }

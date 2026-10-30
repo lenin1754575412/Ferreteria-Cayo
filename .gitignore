@@ -56,3 +56,14 @@ usuarios.json
 usuarios.json.tmp
 /respaldo-*/
 /backup-menu-*/
+*.sqlite-*
+*.db-*
+*.bak
+*.bak.*
+*.respaldo-*
+.crear-admin-temporal.cjs
+/backup-*/
+
+/.cayo-respaldos/
+*.db-wal
+*.db-shm

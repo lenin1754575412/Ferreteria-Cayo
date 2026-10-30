@@ -4674,3 +4674,203 @@ body {
 
 /* CAYO SQLITE */
 .account-bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:12px 20px;background:#11161a;color:white}.account-bar a{text-decoration:underline}.account-bar button{cursor:pointer}.cayo-form,.cayo-card{background:white;padding:24px;border:1px solid #ddd;border-radius:10px;margin:24px 0}.cayo-form{max-width:950px}.cayo-form label,.cayo-card label{display:flex;flex-direction:column;gap:6px;margin:12px 0}.cayo-form input,.cayo-form select,.cayo-form textarea,.cayo-card input,.cayo-card select{font:inherit;padding:10px;border:1px solid #aaa;border-radius:5px;max-width:100%;width:100%}.cayo-form textarea{min-height:80px}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;align-items:end}.button-row{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}.cayo-card button,.cayo-form button{cursor:pointer;padding:10px;margin:4px;border-radius:5px}.cayo-card button:disabled,.cayo-form button:disabled{opacity:.6;cursor:wait}.form-error{color:#a31515}.check-label{flex-direction:row!important;align-items:center}.check-label input{width:auto}.table-scroll{overflow:auto} .cayo-card table{border-collapse:collapse;width:100%;margin:16px 0}.cayo-card th,.cayo-card td{border:1px solid #ddd;text-align:left;padding:10px}.cayo-card th{background:#f0f0f0}.cayo-card summary{cursor:pointer;padding:10px 0}.product-gallery{display:flex;gap:10px;flex-wrap:wrap}.product-gallery img{width:90px!important;height:90px!important;object-fit:contain}.cayo-form input:focus-visible,.cayo-form select:focus-visible,.cayo-card button:focus-visible{outline:3px solid #d79800;outline-offset:2px}
+
+/* CAYO-ANIMACIONES-PRO-INICIO */
+
+/* Movimiento suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animacion inicial del contenido */
+@keyframes cayoAparecer {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animacion de imagenes */
+@keyframes cayoZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Brillo animado */
+@keyframes cayoBrillo {
+  0% {
+    transform: translateX(-160%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+/* Banner principal */
+main h1 {
+  animation: cayoAparecer 850ms ease-out both;
+}
+
+main h1 + p {
+  animation: cayoAparecer 950ms ease-out both;
+}
+
+/* Menu superior */
+header a,
+nav a {
+  transition:
+    color 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+header a:hover,
+nav a:hover {
+  transform: translateY(-2px);
+  opacity: 0.78;
+}
+
+/* Botones */
+main button,
+main a {
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease,
+    filter 250ms ease;
+}
+
+main button:hover,
+main a:hover {
+  transform: translateY(-3px);
+}
+
+main button:active,
+main a:active {
+  transform: scale(0.97);
+}
+
+/* Tarjetas de productos y marcas */
+main article,
+main [class*="card"],
+main [class*="Card"],
+main [class*="brand"],
+main [class*="Brand"] {
+  transition:
+    transform 300ms cubic-bezier(.2,.8,.2,1),
+    box-shadow 300ms ease,
+    border-color 300ms ease;
+}
+
+main article:hover,
+main [class*="card"]:hover,
+main [class*="Card"]:hover,
+main [class*="brand"]:hover,
+main [class*="Brand"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.13);
+}
+
+/* Imagenes de productos */
+main article img,
+main [class*="product"] img,
+main [class*="Product"] img {
+  transition: transform 450ms ease;
+}
+
+main article:hover img,
+main [class*="product"]:hover img,
+main [class*="Product"]:hover img {
+  transform: scale(1.045);
+}
+
+/* Buscador */
+input[type="search"],
+input[placeholder*="buscando"],
+input[placeholder*="Buscar"] {
+  transition:
+    box-shadow 250ms ease,
+    border-color 250ms ease;
+}
+
+input[type="search"]:focus,
+input[placeholder*="buscando"]:focus,
+input[placeholder*="Buscar"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,190,0,.25);
+}
+
+/* Accesibilidad: respetar usuarios sin animaciones */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  main h1,
+  main h1 + p {
+    animation: none !important;
+  }
+
+  main *,
+  header *,
+  nav * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* CAYO-ANIMACIONES-PRO-FIN */
+
+
+/* CAYO-PREMIUM-CUENTA-INICIO */
+
+body:has(#cayo-premium-home) > .account-bar {
+  position: absolute !important;
+  top: 0;
+  right: 3%;
+  z-index: 1000;
+  min-height: 62px;
+  background: transparent !important;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 13px;
+  padding: 8px 0;
+  font-size: 12px;
+}
+
+body:has(#cayo-premium-home) > .account-bar a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+body:has(#cayo-premium-home) > .account-bar a[href="/registro"] {
+  background: #ffc400;
+  color: #07111b;
+  padding: 11px 15px;
+  border-radius: 8px;
+}
+
+@media(max-width:800px) {
+  body:has(#cayo-premium-home) > .account-bar {
+    position: relative !important;
+    top: auto;
+    right: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 12px !important;
+    background: #06111b !important;
+  }
+}
+
+/* CAYO-PREMIUM-CUENTA-FIN */
