@@ -1,0 +1,58 @@
+/* Ferretería Cayo — capa UI / motion. No altera formularios ni datos. */
+:root { --cayo-motion-yellow: #ffbb00; --cayo-motion-ink: #101b25; }
+.cayo-motion-spotlight { position:relative; isolation:isolate; background:linear-gradient(125deg,#101a25 0%,#192e3b 58%,#0e1922 100%); color:#fff; padding:clamp(26px,4.5vw,66px) max(20px, calc((100vw - 1350px)/2)); overflow:hidden; }
+.cayo-motion-spotlight::before { content:""; position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(255,187,0,.13),transparent 70%); right:-190px; top:-240px; pointer-events:none; z-index:-1; }
+.cayo-motion-intro { display:flex; justify-content:space-between; align-items:flex-end; gap:26px; margin-bottom:30px; }
+.cayo-motion-kicker { display:flex; gap:8px; align-items:center; letter-spacing:.16em; font-size:11px; font-weight:800; color:var(--cayo-motion-yellow); margin:0 0 15px; }
+.cayo-motion-intro h2 { font-size:clamp(29px,3.9vw,53px); font-weight:900; line-height:1.08; letter-spacing:-.038em; margin:0; color:#fff; }
+.cayo-motion-intro h2 span { color:var(--cayo-motion-yellow); }
+.cayo-motion-description { color:#d0d8df; margin:14px 0 0; max-width:550px; line-height:1.65; }
+.cayo-motion-all { color:#111c24 !important; background:var(--cayo-motion-yellow); border-radius:99px; display:inline-flex; justify-content:center; gap:8px; align-items:center; text-decoration:none !important; padding:13px 18px; font-weight:800; white-space:nowrap; transition:transform .25s,background .25s; }
+.cayo-motion-all:hover { transform:translateY(-3px); background:#ffd146; }
+.cayo-motion-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+.cayo-motion-feature { border:1px solid rgba(255,255,255,.11); border-radius:22px; min-width:0; overflow:hidden; background:linear-gradient(143deg,#263e4a,#182a35); box-shadow:0 16px 38px rgba(0,0,0,.16); }
+.cayo-motion-feature-link { color:#fff !important; text-decoration:none !important; display:flex; height:100%; min-height:305px; flex-direction:column; padding:20px 22px 18px; position:relative; }
+.cayo-motion-feature-top { display:flex; align-items:center; justify-content:space-between; font-size:10px; font-weight:800; letter-spacing:.16em; color:rgba(255,255,255,.78); }
+.cayo-motion-art { flex:1; display:grid; place-items:center; min-height:148px; position:relative; color:#ffcf44; }
+.cayo-motion-art svg { position:relative; z-index:2; filter:drop-shadow(0 12px 12px rgba(0,0,0,.28)); transition:transform .45s cubic-bezier(.2,1,.3,1); }
+.cayo-motion-feature:hover .cayo-motion-art svg { transform:translateY(-6px) rotate(-7deg) scale(1.08); }
+.cayo-motion-art-glow { position:absolute; width:175px; height:175px; border-radius:50%; background:radial-gradient(circle,rgba(255,193,0,.22),transparent 70%); }
+.cayo-motion-build { background:linear-gradient(143deg,#283541,#344b4a); }
+.cayo-motion-paint { background:linear-gradient(143deg,#2e3450,#283744); }
+.cayo-motion-feature-bottom { display:flex; align-items:flex-end; justify-content:space-between; gap:8px; }
+.cayo-motion-feature-bottom h3 { font-size:25px; line-height:1.18; letter-spacing:-.025em; margin:0 0 6px; color:#fff; font-weight:850; }
+.cayo-motion-feature-bottom p { font-size:13px; margin:0; color:#d0d8df; }
+.cayo-motion-round-arrow { width:37px; height:37px; border-radius:50%; display:grid; place-items:center; background:var(--cayo-motion-yellow); color:#182029; transition:transform .25s; flex-shrink:0; }
+.cayo-motion-feature:hover .cayo-motion-round-arrow { transform:translateX(3px); }
+.cayo-motion-trust { padding-top:26px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px 24px; color:#e5eaf0; font-size:12px; font-weight:600; }
+.cayo-motion-trust span { display:inline-flex; align-items:center; gap:9px; }
+.cayo-motion-trust svg { color:var(--cayo-motion-yellow); }
+/* Microinteracciones sobre tarjetas existentes (sin tocar su estructura HTML). */
+:where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card) { transition:transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease !important; will-change:transform; }
+:where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card):hover { transform:translateY(-5px); box-shadow:0 18px 38px rgba(15,25,35,.15) !important; }
+:where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card) img { transition:transform .45s cubic-bezier(.2,.8,.2,1); }
+:where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card):hover img { transform:scale(1.045); }
+:where(.main-nav a, .nav-links a, .mega-menu a) { transition:color .2s, background-color .2s; }
+:where(.btn, .btn-yellow, .btn-outline) { transition: transform .25s ease, filter .25s ease, box-shadow .25s ease; }
+:where(.btn, .btn-yellow, .btn-outline):hover { transform:translateY(-2px); filter:brightness(1.05); }
+.cayo-scroll-progress { position:fixed; top:0; left:0; height:4px; width:100%; background:linear-gradient(90deg,#f39100,#ffdf56); z-index:99980; transform:scaleX(0); transform-origin:left; pointer-events:none; }
+.cayo-scroll-top { position:fixed; right:18px; bottom:83px; z-index:9995; width:44px; height:44px; border:0; border-radius:50%; display:grid; place-items:center; background:#182733; color:#ffc322; box-shadow:0 8px 22px rgba(0,0,0,.23); cursor:pointer; }
+.cayo-scroll-top:hover { background:#243b4a; }
+.cayo-quick-trigger { position:fixed; left:18px; bottom:80px; display:flex; align-items:center; gap:7px; padding:10px 12px; border-radius:99px; background:#1a2731; color:#fff; font-size:12px; font-weight:700; box-shadow:0 8px 22px rgba(0,0,0,.22); border:1px solid rgba(255,255,255,.2); cursor:pointer; z-index:9995; }
+.cayo-quick-trigger svg { color:#ffbf00; }
+.cayo-quick-trigger kbd { padding:3px 5px; background:#33444e; border-radius:5px; color:#dce3e7; font-size:10px; }
+.cayo-quick-backdrop { position:fixed; inset:0; background:rgba(8,13,18,.70); backdrop-filter:blur(6px); z-index:99990; display:flex; justify-content:center; align-items:flex-start; padding:14vh 16px 20px; }
+.cayo-quick-dialog { width:min(570px,100%); background:#fff; color:#17212b; border-radius:20px; box-shadow:0 30px 100px rgba(0,0,0,.35); overflow:hidden; }
+.cayo-quick-form { display:flex; gap:14px; align-items:center; padding:19px 21px; border-bottom:1px solid #e8e8e8; }
+.cayo-quick-form svg { flex-shrink:0; }
+.cayo-quick-form input { flex:1; min-width:0; background:transparent; border:0; outline:0; font-size:16px; color:#17212b; }
+.cayo-quick-form button { display:grid; place-items:center; border:0; background:transparent; color:#586572; cursor:pointer; }
+.cayo-quick-list { padding:14px; max-height:50vh; overflow:auto; }
+.cayo-quick-heading { padding:5px 12px 12px; margin:0; font-size:12px; font-weight:800; color:#78838d; text-transform:uppercase; letter-spacing:.08em; }
+.cayo-quick-item { display:flex; width:100%; gap:13px; align-items:center; border:0; padding:12px; border-radius:11px; background:#fff; color:#17212b; text-align:left; font-size:15px; cursor:pointer; }
+.cayo-quick-item:hover, .cayo-quick-item:focus-visible { background:#fff4d9; outline:none; }
+.cayo-quick-item > svg:first-child { color:#ca8a00; flex-shrink:0; }
+.cayo-quick-arrow { margin-left:auto; color:#7a8792; }
+.cayo-quick-footer { background:#f7f9fa; border-top:1px solid #e8e8e8; padding:12px 21px; color:#75808a; font-size:12px; }
+@media (max-width: 780px) { .cayo-motion-spotlight { padding:30px 18px; } .cayo-motion-intro { flex-direction:column; align-items:flex-start; } .cayo-motion-grid { grid-template-columns:1fr; } .cayo-motion-feature-link { min-height:240px; } .cayo-motion-art { min-height:110px; } .cayo-motion-art svg { width:80px; height:80px; } .cayo-motion-feature-bottom h3 { font-size:22px; } .cayo-motion-trust { gap:15px; flex-direction:column; } .cayo-quick-trigger { bottom:78px; } .cayo-quick-trigger kbd { display:none; } .cayo-scroll-top { bottom:80px; } }
+@media (prefers-reduced-motion: reduce) { .cayo-motion-spotlight *, .cayo-quick-trigger, .cayo-scroll-top, :where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card) { transition:none !important; animation:none !important; scroll-behavior:auto !important; } :where(.category-card, .product-card, .subcategory-card, .cat-card, .product-tile, .subcat-card):hover { transform:none; } }

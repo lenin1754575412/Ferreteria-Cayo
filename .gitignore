@@ -51,3 +51,8 @@ node_modules/
 *.db-journal
 backup-*/
 *.bak-*
+.secret
+usuarios.json
+usuarios.json.tmp
+/respaldo-*/
+/backup-menu-*/

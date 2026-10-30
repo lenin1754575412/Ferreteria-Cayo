@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ferretería Cayo | Semana 10</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#071923;color:white;font-family:Arial,sans-serif}
+header{background:#ffbd00;color:#071923;padding:22px 7%;display:flex;justify-content:space-between;align-items:center}
+header h1{margin:0;font-size:30px;font-weight:900}
+header span{font-size:13px;font-weight:bold}
+main{max-width:1100px;margin:50px auto;padding:0 20px}
+h2{font-size:34px;margin-bottom:8px}
+p{color:#b9cbd2}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:30px}
+.card{background:#102b39;border:1px solid #35505e;border-radius:18px;padding:28px}
+.card h3{color:#ffbd00;margin-top:0}
+input{display:block;width:100%;padding:14px;margin:12px 0;background:#071923;border:1px solid #47606a;border-radius:8px;color:white;font-size:15px}
+button{background:#ffbd00;color:#071923;border:0;border-radius:9px;padding:13px 18px;font-weight:800;cursor:pointer;margin:5px 5px 5px 0}
+button:hover{background:#ffda56}
+.secondary{background:#243e4b;color:white}
+pre{background:#031017;padding:20px;border-radius:12px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:100px}
+small{color:#b9cbd2}
+</style>
+</head>
+<body>
+<header><div><h1>CAYO</h1><span>FERRETERÍA · HERRAMIENTAS · CONSTRUCCIÓN</span></div><strong>SEMANA 10</strong></header>
+<main>
+<h2>Autenticación y seguridad</h2>
+<p>Implementación de login, registro, roles y permisos mediante Express.</p>
+<div class="grid">
+<section class="card">
+<h3>Crear cuenta</h3>
+<input id="nombre" placeholder="Nombre completo">
+<input id="correoRegistro" type="email" placeholder="Correo electrónico">
+<input id="claveRegistro" type="password" placeholder="Contraseña (mínimo 10 caracteres)">
+<button onclick="registro()">Registrarme</button>
+<small>Las cuentas nuevas tienen rol CLIENTE.</small>
+</section>
+<section class="card">
+<h3>Iniciar sesión</h3>
+<input id="correoLogin" type="email" placeholder="Correo electrónico">
+<input id="claveLogin" type="password" placeholder="Contraseña">
+<button onclick="login()">Ingresar</button>
+<button class="secondary" onclick="salir()">Cerrar sesión</button>
+<p id="sesion">Sin sesión activa</p>
+</section>
+</div>
+<section class="card" style="margin-top:24px">
+<h3>Pruebas de permisos</h3>
+<button onclick="consultar('/api/perfil')">Mi perfil</button>
+<button onclick="consultar('/api/productos')">Ver productos</button>
+<button onclick="consultar('/api/ventas')">Módulo vendedor</button>
+<button onclick="consultar('/api/admin')">Panel administrador</button>
+<h3>Respuesta del servidor</h3>
+<pre id="resultado">Registra un usuario para comenzar.</pre>
+</section>
+</main>
+<script>
+let token="";
+let usuario=null;
+const $=id=>document.getElementById(id);
+function mostrar(data){$("resultado").textContent=JSON.stringify(data,null,2)}
+async function peticion(url,method="GET",body){
+ try{
+  const r=await fetch(url,{
+   method,
+   headers:{"Content-Type":"application/json",...(token?{Authorization:"Bearer "+token}:{})},
+   ...(body?{body:JSON.stringify(body)}:{})
+  });
+  const data=await r.json();
+  mostrar({estado:r.status,...data});
+  return r.ok?data:null;
+ }catch(e){mostrar({error:"No se pudo conectar al servidor"});return null}
+}
+async function registro(){
+ await peticion("/api/registro","POST",{
+  nombre:$("nombre").value,
+  email:$("correoRegistro").value,
+  password:$("claveRegistro").value
+ });
+}
+async function login(){
+ const data=await peticion("/api/login","POST",{
+  email:$("correoLogin").value,
+  password:$("claveLogin").value
+ });
+ if(data){
+  token=data.token;
+  usuario=data.usuario;
+  $("sesion").textContent="Conectado: "+usuario.nombre+" | Rol: "+usuario.rol;
+ }
+}
+function salir(){
+ token="";usuario=null;
+ $("sesion").textContent="Sin sesión activa";
+ mostrar({mensaje:"Sesión cerrada en esta página"});
+}
+async function consultar(url){await peticion(url)}
+</script>
+</body>
+</html>
