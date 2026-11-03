@@ -1,6 +1,7 @@
+import * as neonAuth from './neon-auth';
 import engine from './engine.cjs';
 import { NextRequest, NextResponse } from 'next/server';
-export const api = engine as any;
+export const api = (process.env.DATABASE_URL ? {...(engine as any), ...neonAuth} : engine) as any;
 export async function userFrom(request: NextRequest) { return api.session(request.cookies.get('cayo_session')?.value); }
 export async function handle(request: NextRequest, action: (user: any, body: any) => Promise<any>) {
  try {

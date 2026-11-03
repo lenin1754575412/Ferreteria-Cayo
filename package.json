@@ -12,6 +12,7 @@
     "test:coverage": "c8 --include=src/server/engine.cjs --check-coverage --lines=70 --functions=70 --branches=70 node --test tests/domain.test.cjs"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.2.0",
     "@vercel/analytics": "^1.6.1",
     "@vercel/blob": "^2.8.0",
     "animejs": "3.2.2",
