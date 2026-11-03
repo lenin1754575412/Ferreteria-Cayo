@@ -1,0 +1,21 @@
+/* CAYO - MENU AMPLIADO */
+
+@media (min-width: 1101px) {
+    header nav a,
+    header nav button {
+        font-size: 15px !important;
+        font-weight: 700 !important;
+        white-space: nowrap;
+    }
+
+    header nav {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 1100px) {
+    header nav a,
+    header nav button {
+        font-size: 13px !important;
+    }
+}

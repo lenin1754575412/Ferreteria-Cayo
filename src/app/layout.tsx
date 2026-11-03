@@ -1,3 +1,6 @@
+import "./cayo-animaciones.css";
+import MotionEngine from "@/features/motion-cayo/MotionEngine";
+import QuickNavigation from "@/features/motion-cayo/QuickNavigation";
 import { AccountBar } from "@/features/account/ui/AccountBar";
 import CookieBanner from "@/components/CookieBanner";
 import type {
@@ -21,6 +24,7 @@ import {
 } from "@/features/animations";
 
 import "./globals.css";
+import "./motion-cayo.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://ferreteria-cayo.vercel.app"),
@@ -50,6 +54,8 @@ export default function RootLayout({
           <AccountBar />
 
           <DigitalAnimations />
+<MotionEngine />
+<QuickNavigation />
 
           {children}
 

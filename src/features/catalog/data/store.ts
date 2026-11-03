@@ -1,3 +1,4 @@
+import { subcategoryImages } from "./subcategoryImages";
 import { productImages } from "./productImages";
 
 export type Product = {
@@ -42,40 +43,40 @@ export const categories = [
 
 export const categoryImages: Record<string, string> = {
   "Herramientas Manuales":
-    "https://www.materiel-mngi.fr/public/donnees/cms/sources/pages/mngi-4.jpg",
+    "/categorias/herramientas-manuales-real.jpg",
 
   "Herramientas Eléctricas":
-    "https://static.wixstatic.com/media/8673d9_d44810fb109a4487b1207dee4a4b4f8f~mv2.jpg/v1/fill/w_980,h_654,al_c,q_85/8673d9_d44810fb109a4487b1207dee4a4b4f8f~mv2.jpg",
+    "/categorias/herramientas-electricas.jpg",
 
   "Materiales de Construcción":
-    "https://www.buildsvia.com/uploadfile/ueditor/image/202509/1758530864ab8f91.jpg",
+    "/categorias/materiales-de-construccion.jpg",
 
   "Pinturas y Acabados":
-    "https://www.mondopratico.it/media/arts/cfadda_cagliari_%283%29.jpeg",
+    "/categorias/pinturas-y-acabados.jpg",
 
   "Iluminación":
-    "https://nmrcdn.s3.amazonaws.com/assets/963/assets/responsive/524000/524097/web_elec.jpg",
+    "/categorias/iluminacion.jpg",
 
   "Tuberías y Fontanería":
-    "https://vhrbarnesville.com/cdn/shop/files/Plumbing_Gallery_-_Village_Hardware_and_Rental_-_500_x_500_1_800x.png",
+    "/categorias/tuberias-y-fontaneria.jpg",
 
   "Cerraduras y Seguridad":
-    "https://trillingtruevaluehardware.com/wp-content/uploads/2023/04/IMG_20230418_131531-1-scaled.jpg",
+    "/categorias/cerraduras-y-seguridad.jpg",
 
   "Accesorios de Ferretería":
-    "https://www.buildsvia.com/uploadfile/ueditor/image/202509/1758530864ab8f91.jpg",
+    "/categorias/accesorios-de-ferreteria.jpg",
 
   "Equipos de Protección":
-    "https://grupotrevor.com/assets/img/gallery/delicias3.jpeg",
+    "/categorias/equipos-de-proteccion.jpg",
 
   "Puertas y Ventanas":
-    "https://dyn.eu.mktgcdn.com/f/0/WFwGNFywVMHNztB31JIA3Cma_KME_x1K_pxfa066BkE.jpg",
+    "/categorias/puertas-y-ventanas.jpg",
 
   "Herramientas de Jardín":
-    "https://southhillshardware.com/cdn/shop/files/6_800x.png",
+    "/categorias/herramientas-de-jardin.jpg",
 
   "Cemento y Áridos":
-    "https://www.buildsvia.com/uploadfile/ueditor/image/202509/1758530864ab8f91.jpg",
+    "/categorias/cemento-y-aridos.jpg",
 };
 
 export function slugify(text: string) {
@@ -905,18 +906,18 @@ const productSeed: Record<string, SeedItem[]> = {
   );
 
 const categoryCodes: Record<string, string> = {
-  "Herramientas Manuales": "HM",
-  "Herramientas Eléctricas": "HE",
-  "Materiales de Construcción": "MC",
-  "Pinturas y Acabados": "PA",
-  "Iluminación": "IL",
-  "Tuberías y Fontanería": "TF",
-  "Cerraduras y Seguridad": "CS",
-  "Accesorios de Ferretería": "AF",
-  "Equipos de Protección": "EP",
-  "Puertas y Ventanas": "PV",
-  "Herramientas de Jardín": "HJ",
-  "Cemento y Áridos": "CA"
+  "Herramientas Manuales": "/categorias/herramientas-manuales-real.jpg",
+  "Herramientas Eléctricas": "/categorias/herramientas-electricas.jpg",
+  "Materiales de Construcción": "/categorias/materiales-de-construccion.jpg",
+  "Pinturas y Acabados": "/categorias/pinturas-y-acabados.jpg",
+  "Iluminación": "/categorias/iluminacion.jpg",
+  "Tuberías y Fontanería": "/categorias/tuberias-y-fontaneria.jpg",
+  "Cerraduras y Seguridad": "/categorias/cerraduras-y-seguridad.jpg",
+  "Accesorios de Ferretería": "/categorias/accesorios-de-ferreteria.jpg",
+  "Equipos de Protección": "/categorias/equipos-de-proteccion.jpg",
+  "Puertas y Ventanas": "/categorias/puertas-y-ventanas.jpg",
+  "Herramientas de Jardín": "/categorias/herramientas-de-jardin.jpg",
+  "Cemento y Áridos": "/categorias/cemento-y-aridos.jpg"
 };
 
 export const products: Product[] =
@@ -1136,6 +1137,18 @@ Record<string, string[]> = {
   ]
 };
 
+const subcategoryPhotoMap: Record<string, string> = {
+  "Herramientas Manuales|Martillos": "/subcategorias/herramientas-manuales-martillos.jpg",
+  "Herramientas Manuales|Llaves": "/subcategorias/herramientas-manuales-llaves.jpg",
+  "Herramientas Manuales|Alicates": "/subcategorias/herramientas-manuales-alicates.jpg",
+  "Herramientas Manuales|Destornilladores": "/subcategorias/herramientas-manuales-destornilladores.jpg",
+  "Herramientas Manuales|Medición": "/subcategorias/herramientas-manuales-medicion.jpg",
+  "Iluminación|Focos LED": "/subcategorias/iluminacion-focos-led.jpg",
+  "Iluminación|Paneles LED": "/subcategorias/iluminacion-paneles-led.jpg",
+  "Iluminación|Extensiones": "/subcategorias/iluminacion-extensiones.jpg",
+  "Iluminación|Accesorios": "/subcategorias/iluminacion-accesorios.jpg",
+};
+
 export function makeSubcategories(
   category: string
 ) {
@@ -1146,9 +1159,7 @@ export function makeSubcategories(
     (title, index) => ({
       title,
 
-      img:
-        makeProducts(category)[index]?.img ??
-        categoryImages[category],
+      img: subcategoryImages[category]?.[title] ?? "/subcategorias-reales/foto-pendiente.svg",
 
       href:
         `/productos?categoria=${encodeURIComponent(category)}&q=${encodeURIComponent(title)}`
