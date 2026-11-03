@@ -43,6 +43,7 @@ export default function Home() {
         </div>
         <div className={styles.cuenta}>
           <span className={styles.redes}>f　◎　▶　♪</span>
+          <Link href="/" className={styles.inicioCuenta}>⌂ Inicio</Link>
           <Link href="/login">♙ Iniciar sesión</Link>
           <Link className={styles.registro} href="/registro">Registrarme</Link>
         </div>

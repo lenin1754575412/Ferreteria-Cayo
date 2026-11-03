@@ -67,3 +67,22 @@ usuarios.json.tmp
 /.cayo-respaldos/
 *.db-wal
 *.db-shm
+
+# CAYO - Archivos privados y temporales
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-shm
+*.pem
+*.key
+.cayo-respaldos/
+backup-*/
+respaldo-*/
+*.bak
+*.log

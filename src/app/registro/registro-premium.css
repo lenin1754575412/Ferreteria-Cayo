@@ -1,0 +1,322 @@
+.cayo-registro-premium {
+  min-height: calc(100vh - 55px);
+  padding: 45px 24px 65px;
+  background:
+    radial-gradient(circle at 10% 35%, rgba(255,190,0,.12), transparent 30%),
+    linear-gradient(125deg,#07121d,#142332 55%,#050d15);
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.cayo-registro-premium * {
+  box-sizing: border-box;
+}
+
+.cayo-registro-premium .premium-container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.cayo-registro-premium .premium-card {
+  display: grid;
+  grid-template-columns: 43% 57%;
+  min-height: 660px;
+  border: 1px solid rgba(255,190,0,.75);
+  border-radius: 24px;
+  overflow: hidden;
+  background: #0b1825;
+  box-shadow: 0 30px 90px rgba(0,0,0,.5),0 0 32px rgba(255,190,0,.1);
+  animation: cayoEntrada .7s ease both;
+}
+
+.cayo-registro-premium .premium-info {
+  position: relative;
+  padding: 55px 45px;
+  background:
+    linear-gradient(90deg,rgba(3,12,19,.96),rgba(3,12,19,.65)),
+    url("/registro-construccion.jpg") center/cover,
+    linear-gradient(145deg,#182c37,#070d14);
+  border-right: 2px solid #ffbe00;
+}
+
+.cayo-registro-premium .premium-kicker {
+  color: #ffca32;
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+.cayo-registro-premium .premium-info h1 {
+  font-size: clamp(30px,3vw,46px);
+  line-height: 1.12;
+  margin: 30px 0 22px;
+  font-weight: 900;
+}
+
+.cayo-registro-premium .premium-info h1 span {
+  color: #ffc21b;
+}
+
+.cayo-registro-premium .premium-info p {
+  max-width: 380px;
+  color: #d1d9df;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.cayo-registro-premium .premium-benefit {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.cayo-registro-premium .premium-benefit-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border: 1px solid #ffbe00;
+  border-radius: 12px;
+  color: #ffbe00;
+  font-size: 25px;
+  background: rgba(255,190,0,.08);
+}
+
+.cayo-registro-premium .premium-benefit strong {
+  display: block;
+  font-size: 15px;
+}
+
+.cayo-registro-premium .premium-benefit small {
+  display: block;
+  color: #aebdc9;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.cayo-registro-premium .premium-form-side {
+  padding: 48px 45px;
+  background: linear-gradient(145deg,#112435,#07111c);
+}
+
+.cayo-registro-premium .premium-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.cayo-registro-premium .premium-heading-icon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffbe00;
+  border-radius: 15px;
+  background: rgba(255,190,0,.08);
+  color: #ffbe00;
+  font-size: 30px;
+}
+
+.cayo-registro-premium .premium-heading h2 {
+  margin: 0 0 8px;
+  font-size: 34px;
+  color: white;
+}
+
+.cayo-registro-premium .premium-heading p {
+  color: #b5c0cc;
+  margin: 0;
+  font-size: 14px;
+}
+
+.cayo-registro-premium .premium-form-content {
+  color: white;
+}
+
+.cayo-registro-premium .premium-form-content form {
+  width: 100%;
+}
+
+.cayo-registro-premium .premium-form-content label {
+  color: #f3f5f8 !important;
+  font-weight: 600;
+}
+
+.cayo-registro-premium .premium-form-content input,
+.cayo-registro-premium .premium-form-content select {
+  background: #1a2b3a !important;
+  color: #fff !important;
+  border: 1px solid #607080 !important;
+  border-radius: 10px !important;
+  min-height: 44px;
+  padding: 10px 12px;
+  max-width: 100%;
+  transition: border-color .25s, box-shadow .25s;
+}
+
+.cayo-registro-premium .premium-form-content input:focus,
+.cayo-registro-premium .premium-form-content select:focus {
+  outline: none;
+  border-color: #ffbe00 !important;
+  box-shadow: 0 0 0 3px rgba(255,190,0,.15);
+}
+
+.cayo-registro-premium .premium-form-content input::placeholder {
+  color: #aab6c0;
+}
+
+.cayo-registro-premium .premium-form-content button[type="submit"] {
+  background: linear-gradient(180deg,#ffdb62,#ffb900) !important;
+  color: #07121c !important;
+  font-weight: 900 !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  min-height: 52px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: transform .25s,box-shadow .25s;
+}
+
+.cayo-registro-premium .premium-form-content button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255,190,0,.25);
+}
+
+.cayo-registro-premium .premium-form-content a {
+  color: #ffce3e;
+}
+
+.cayo-registro-premium .premium-form-content p,
+.cayo-registro-premium .premium-form-content small {
+  color: #c6d0d9;
+}
+
+.cayo-registro-premium .premium-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 35px;
+  color: #e8edf1;
+  font-size: 14px;
+}
+
+.cayo-registro-premium .premium-footer span {
+  color: #ffc21b;
+  margin-right: 8px;
+  font-size: 22px;
+}
+
+@keyframes cayoEntrada {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .cayo-registro-premium .premium-card {
+    grid-template-columns: 1fr;
+  }
+  .cayo-registro-premium .premium-info,
+  .cayo-registro-premium .premium-form-side {
+    padding: 35px 25px;
+  }
+  .cayo-registro-premium .premium-info {
+    border-right: 0;
+    border-bottom: 2px solid #ffbe00;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cayo-registro-premium *,
+  .cayo-registro-premium .premium-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* ===== CAYO REGISTRO PREMIUM V2 ===== */
+
+.cayo-registro-premium .premium-form-content {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.cayo-registro-premium .premium-form-content > div,
+.cayo-registro-premium .premium-form-content > main,
+.cayo-registro-premium .premium-form-content > section,
+.cayo-registro-premium .premium-form-content form,
+.cayo-registro-premium .premium-form-content form > div {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.cayo-registro-premium .premium-form-content h1,
+.cayo-registro-premium .premium-form-content h2 {
+  display: none;
+}
+
+.cayo-registro-premium .premium-form-content label {
+  color: #f4f7fb !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+.cayo-registro-premium .premium-form-content input,
+.cayo-registro-premium .premium-form-content select {
+  background: #1b2d3d !important;
+  color: #ffffff !important;
+  border: 1px solid #526779 !important;
+  border-radius: 10px !important;
+  min-height: 46px !important;
+  padding: 11px 14px !important;
+  width: 100%;
+  font-size: 14px !important;
+}
+
+.cayo-registro-premium .premium-form-content input:focus,
+.cayo-registro-premium .premium-form-content select:focus {
+  border-color: #ffc400 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(255,196,0,.15) !important;
+}
+
+.cayo-registro-premium .premium-form-content input::placeholder {
+  color: #aebbc8 !important;
+}
+
+.cayo-registro-premium .premium-form-content button[type="submit"] {
+  display: block !important;
+  width: 100% !important;
+  min-height: 56px !important;
+  margin-top: 22px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(180deg,#ffdf70,#ffb900) !important;
+  color: #08131e !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  box-shadow: 0 8px 28px rgba(255,190,0,.18) !important;
+}
+
+.cayo-registro-premium .premium-form-content button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(255,190,0,.3) !important;
+}
+
+.cayo-registro-premium .premium-form-side {
+  background: linear-gradient(145deg,#102538,#07121e) !important;
+}
+
+.cayo-registro-premium .premium-card {
+  box-shadow: 0 30px 90px rgba(0,0,0,.5),
+              0 0 35px rgba(255,190,0,.12);
+}
+
+.cayo-registro-premium .premium-form-content p,
+.cayo-registro-premium .premium-form-content small {
+  color: #b7c5d2 !important;
+}
+
+/* ===== FIN CAYO REGISTRO PREMIUM V2 ===== */
+

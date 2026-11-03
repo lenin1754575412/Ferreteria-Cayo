@@ -1,0 +1,179 @@
+/* ===================================================
+   FERRETERIA CAYO - ANIMACIONES PREMIUM
+   =================================================== */
+
+@keyframes cayoAparecer {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cayoBrillo {
+    0% { transform: translateX(-160%) skewX(-20deg); }
+    100% { transform: translateX(300%) skewX(-20deg); }
+}
+
+@keyframes cayoPulso {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,190,0,.18); }
+    50% { box-shadow: 0 0 0 9px rgba(255,190,0,0); }
+}
+
+@keyframes cayoFlotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes cayoResplandor {
+    0%, 100% { filter: drop-shadow(0 0 0 transparent); }
+    50% { filter: drop-shadow(0 0 10px rgba(255,190,0,.35)); }
+}
+
+/* Entrada suave del contenido */
+body main h1,
+body main h2 {
+    animation: cayoAparecer .85s ease-out both;
+}
+
+body main p {
+    animation: cayoAparecer 1s ease-out both;
+}
+
+body main a,
+body main button {
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        filter .25s ease,
+        background-color .25s ease;
+}
+
+/* Botones premium */
+body main a:hover,
+body main button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.08);
+}
+
+body main a:active,
+body main button:active {
+    transform: translateY(0) scale(.97);
+}
+
+/* Navegacion */
+body header a,
+body nav a {
+    transition:
+        color .25s ease,
+        background-color .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+body nav a:hover {
+    transform: translateY(-2px);
+}
+
+body nav a:focus-visible,
+body main a:focus-visible,
+body button:focus-visible {
+    outline: 2px solid #ffbe00;
+    outline-offset: 4px;
+}
+
+/* Tarjetas y categorias */
+body main article,
+body main [class*="card"],
+body main [class*="tarjeta"] {
+    transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+body main article:hover,
+body main [class*="card"]:hover,
+body main [class*="tarjeta"]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0,0,0,.22);
+}
+
+/* Imagenes de productos y categorias */
+body main article img,
+body main [class*="card"] img {
+    transition: transform .5s ease, filter .4s ease;
+}
+
+body main article:hover img,
+body main [class*="card"]:hover img {
+    transform: scale(1.045);
+}
+
+/* Iconos y detalles */
+body main svg {
+    transition: transform .3s ease;
+}
+
+body main a:hover svg,
+body main button:hover svg {
+    transform: translateX(3px);
+}
+
+/* Carrusel y marcas */
+body main [class*="marca"],
+body main [class*="brand"] {
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        filter .3s ease;
+}
+
+body main [class*="marca"]:hover,
+body main [class*="brand"]:hover {
+    transform: translateY(-4px) scale(1.025);
+    box-shadow: 0 10px 24px rgba(255,190,0,.18);
+}
+
+/* Efecto visual para banner */
+body main [class*="hero"] {
+    position: relative;
+    isolation: isolate;
+}
+
+body main [class*="hero"] img {
+    transition: filter .6s ease;
+}
+
+body main [class*="hero"]:hover img {
+    filter: brightness(1.06);
+}
+
+/* Botones amarillos */
+body main a[class*="primary"],
+body main button[class*="primary"] {
+    animation: cayoPulso 3s ease-in-out infinite;
+}
+
+/* Adaptacion movil */
+@media (max-width: 768px) {
+    body main h1,
+    body main h2,
+    body main p {
+        animation-duration: .5s;
+    }
+
+    body main article:hover,
+    body main [class*="card"]:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

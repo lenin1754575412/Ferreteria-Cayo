@@ -1,3 +1,4 @@
+import "./cayo-animaciones.css";
 import MotionEngine from "@/features/motion-cayo/MotionEngine";
 import QuickNavigation from "@/features/motion-cayo/QuickNavigation";
 import { AccountBar } from "@/features/account/ui/AccountBar";

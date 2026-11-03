@@ -1461,7 +1461,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeÃƒÂ±o en celular */
+/* Movimiento mas pequeÃƒÆ’Ã‚Â±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1559,7 +1559,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeÃƒÂ±o en celular */
+/* Movimiento mas pequeÃƒÆ’Ã‚Â±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1657,7 +1657,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeÃƒÂ±o en celular */
+/* Movimiento mas pequeÃƒÆ’Ã‚Â±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1755,7 +1755,7 @@ body {
   background: #fff4c4;
 }
 
-/* Movimiento mas pequeÃƒÂ±o en celular */
+/* Movimiento mas pequeÃƒÆ’Ã‚Â±o en celular */
 
 @media(max-width: 600px) {
 
@@ -1796,7 +1796,7 @@ body {
     box-shadow;
 }
 
-/* cada uno se anima un poquito despuÃƒÂ©s */
+/* cada uno se anima un poquito despuÃƒÆ’Ã‚Â©s */
 
 .benefits-wave .benefit-item:nth-child(1) {
   animation-delay: 0s !important;
@@ -1908,7 +1908,7 @@ body {
   }
 }
 
-/* check con pequeÃƒÂ±o movimiento tambiÃƒÂ©n */
+/* check con pequeÃƒÆ’Ã‚Â±o movimiento tambiÃƒÆ’Ã‚Â©n */
 .benefits-wave .benefit-check {
   display: inline-block;
   animation: checkLateralCayo 1.6s ease-in-out infinite !important;
@@ -1984,7 +1984,7 @@ body {
   animation-delay: .45s;
 }
 
-/* animaciÃ³n derecha - izquierda */
+/* animaciÃƒÂ³n derecha - izquierda */
 @keyframes moverLadosCayo {
   0%   { transform: translateX(0); }
   20%  { transform: translateX(10px); }
@@ -4209,7 +4209,7 @@ body {
 }
 
 
-/* CATEGORÍAS */
+/* CATEGORÃAS */
 
 .cayo-cart-categories {
   padding-top: 10px;
@@ -4559,13 +4559,13 @@ body {
 
 /* ==========================================================
    FIX-MENU-MOVIL-TOUCH-CAYO
-   Productos / Construcción / Pinturas por toque
+   Productos / ConstrucciÃ³n / Pinturas por toque
 ========================================================== */
 
 @media (max-width: 760px) {
 
   /*
-    En móvil no usamos hover/focus para mostrar el menú.
+    En mÃ³vil no usamos hover/focus para mostrar el menÃº.
     La clase is-open la controla React.
   */
 
@@ -4874,3 +4874,232 @@ body:has(#cayo-premium-home) > .account-bar a[href="/registro"] {
 }
 
 /* CAYO-PREMIUM-CUENTA-FIN */
+
+/* ===== CAYO: CARRUSEL DE MARCAS ===== */
+
+/* Movimiento suave en las tarjetas */
+a:has(img[alt*="marca" i]),
+a:has(img[alt*="bosch" i]),
+a:has(img[alt*="dewalt" i]) {
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+/* Efecto al pasar el mouse */
+a:has(img[alt*="marca" i]):hover,
+a:has(img[alt*="bosch" i]):hover,
+a:has(img[alt*="dewalt" i]):hover {
+    transform: translateY(-7px) scale(1.035);
+    box-shadow: 0 12px 30px rgba(255,190,0,.25);
+    border-color: #ffbe00;
+}
+
+/* Animacion de entrada */
+@keyframes cayoMarcaEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respetar accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    a:has(img[alt*="marca" i]),
+    a:has(img[alt*="bosch" i]),
+    a:has(img[alt*="dewalt" i]) {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ===== FIN CAYO CARRUSEL ===== */
+/* CAYO-AUTH-PREMIUM-START */
+
+/* Botones premium: enlaces de autenticacion */
+a[href="/login"],
+a[href="/registro"] {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 11px 24px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .15px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    filter .3s ease;
+}
+
+/* INICIAR SESION */
+a[href="/login"] {
+  color: #ffffff !important;
+  border: 1px solid #6b9bc1;
+  background:
+    linear-gradient(145deg,
+      #244d70 0%,
+      #0d263a 36%,
+      #020d17 75%,
+      #193c59 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -3px 0 rgba(0,0,0,.55),
+    0 3px 0 #e5a600,
+    0 6px 18px rgba(255,190,0,.22);
+}
+
+/* REGISTRARME */
+a[href="/registro"] {
+  color: #07121d !important;
+  border: 1px solid #ffe477;
+  background:
+    linear-gradient(145deg,
+      #fff47c 0%,
+      #ffdf25 24%,
+      #ffbd00 62%,
+      #ff9e00 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.75),
+    inset 0 -3px 0 rgba(181,103,0,.4),
+    0 3px 0 #bd7600,
+    0 6px 20px rgba(255,187,0,.35);
+}
+
+/* Reflejo animado */
+a[href="/login"]::after,
+a[href="/registro"]::after {
+  content: "";
+  position: absolute;
+  inset: -70% auto -70% -80%;
+  width: 38%;
+  z-index: -1;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.4),
+    transparent
+  );
+  transition: left .65s ease;
+}
+
+a[href="/login"]:hover::after,
+a[href="/registro"]:hover::after {
+  left: 140%;
+}
+
+/* Movimiento y brillo */
+a[href="/login"]:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.6),
+    0 4px 0 #ffbe00,
+    0 10px 28px rgba(255,190,0,.5);
+}
+
+a[href="/registro"]:hover {
+  transform: translateY(-3px) scale(1.035);
+  filter: brightness(1.07);
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.8),
+    0 4px 0 #b97800,
+    0 12px 30px rgba(255,190,0,.6);
+}
+
+a[href="/login"]:active,
+a[href="/registro"]:active {
+  transform: translateY(1px) scale(.98);
+}
+
+a[href="/login"]:focus-visible,
+a[href="/registro"]:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+  a[href="/login"],
+  a[href="/registro"] {
+    min-height: 40px;
+    padding: 9px 14px;
+    font-size: 12px;
+    border-radius: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a[href="/login"],
+  a[href="/registro"],
+  a[href="/login"]::after,
+  a[href="/registro"]::after {
+    transition: none !important;
+  }
+}
+
+/* CAYO-AUTH-PREMIUM-END */
+/* CAYO-BARRA-DUPLICADA-INICIO */
+
+/* Ocultar primera barra de navegacion si
+   es el primer elemento del layout */
+
+body > header:first-child {
+    display: none !important;
+}
+
+/* CAYO-BARRA-DUPLICADA-FIN */
+
+/* CAYO - OCULTAR BARRA SUPERIOR DUPLICADA */
+/* Solo se aplica a la pagina principal */
+body:has(.cayo-hide-duplicate-auth) > nav {
+    display: none !important;
+}
+
+/* CAYO-AUTH-HEADER-INICIO */
+
+/* Ocultar solamente la barra superior duplicada.
+   La barra principal con redes sociales permanece visible. */
+body > nav:has(a[href="/login"]):has(a[href="/registro"]) {
+    display: none !important;
+}
+
+/* Estilos profesionales para los enlaces de acceso */
+a[href="/login"],
+a[href="/registro"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 20px;
+    border-radius: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+a[href="/login"]:hover,
+a[href="/registro"]:hover {
+    transform: translateY(-2px);
+}
+
+/* CAYO-AUTH-HEADER-FIN */
+/* CAYO-HEADER-UNIFICADO-2026 */
+/* La barra antigua se oculta solo en Inicio para visitantes. */
+
+body:has(#cayo-home-premium-v2)
+.account-bar:has(a[href="/login"]):has(a[href="/registro"]) {
+    display: none !important;
+}

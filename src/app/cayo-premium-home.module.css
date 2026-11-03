@@ -423,3 +423,55 @@
   .heroContenido { animation: none; }
   .pagina * { transition: none !important; }
 }
+/* CAYO-INICIO-DERECHA-2026 */
+
+.cuenta .inicioCuenta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 10px 20px;
+  border: 2px solid #ffd026;
+  border-radius: 13px;
+  background: linear-gradient(145deg,#172e41,#06121d);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.3),
+    0 4px 0 rgba(255,190,0,.7),
+    0 5px 18px rgba(255,190,0,.16);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.cuenta .inicioCuenta:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(145deg,#26465f,#0d2030);
+  box-shadow:
+    0 4px 0 #ffc400,
+    0 10px 25px rgba(255,196,0,.38);
+}
+
+.cuenta .inicioCuenta:focus-visible {
+  outline: 3px solid #ffd026;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .cuenta .inicioCuenta {
+    padding: 8px 12px;
+    min-height: 38px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cuenta .inicioCuenta {
+    transition: none;
+  }
+}
