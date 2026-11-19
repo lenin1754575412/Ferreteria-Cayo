@@ -1,0 +1,11 @@
+"use client";
+import {useEffect,useState} from "react";
+import Link from "next/link";
+type Order=Record<string,unknown>;
+const safe=(x:unknown)=>typeof x==="string"||typeof x==="number"?String(x):"";
+const money=(n:number)=>new Intl.NumberFormat("es-PE",{style:"currency",currency:"PEN"}).format(n);
+export function OrderTracking(){const [orders,setOrders]=useState<Order[]>([]);const [loading,setLoading]=useState(true);const [error,setError]=useState("");
+ useEffect(()=>{let active=true;fetch("/api/orders",{credentials:"same-origin",cache:"no-store"}).then(async r=>{const data=await r.json();if(!r.ok||data.error)throw new Error(data.error||"Inicia sesión para ver tus pedidos.");return data}).then(data=>{if(active){const rows=Array.isArray(data.orders)?data.orders:Array.isArray(data.orders?.items)?data.orders.items:[];setOrders(rows);}}).catch(e=>{if(active)setError(e instanceof Error?e.message:"No se pueden consultar pedidos.")}).finally(()=>{if(active)setLoading(false)});return()=>{active=false}},[]);
+ return <div className="cayo-pro"><div className="cayo-pro-heading"><div><span className="cayo-pro-topline">SEGUIMIENTO</span><h1>Mis pedidos</h1><p>Los pedidos que tu cuenta tiene autorizados para consultar.</p></div><Link className="cayo-pro-secondary" href="/login">Iniciar sesión</Link></div>
+ <div className="cayo-pro-panel">{loading?<p>Cargando pedidos…</p>:error?<p className="cayo-pro-error" role="alert">{error} <Link href="/login">Ingresar</Link></p>:!orders.length?<p>No hay pedidos registrados para esta cuenta.</p>:<div className="cayo-pro-orders">{orders.map((o,i)=><article key={safe(o.id)||safe(o.orderId)||i} className="cayo-pro-order"><div><small>Pedido</small><h2>{safe(o.orderNumber)||safe(o.code)||safe(o.id)||`#${i+1}`}</h2></div><div><small>Estado</small><strong>{safe(o.status)||safe(o.estado)||"Consultar con la tienda"}</strong></div><div><small>Total registrado</small><strong>{typeof o.total==="number"?money(o.total):"Consultar pedido"}</strong></div></article>)}</div>}</div><p className="cayo-pro-note">Los estados son los reportados por el sistema existente. Esta página no permite consultar pedidos de otras personas con solo introducir un código.</p></div>;
+}

@@ -86,3 +86,12 @@ backup-*/
 respaldo-*/
 *.bak
 *.log
+.env
+.env.*
+!.env.example
+node_modules/
+.next/
+data/*.sqlite
+data/*.sqlite-*
+data/*.db
+*.backup-password
