@@ -1,0 +1,33 @@
+﻿meta {
+  name: 07-Crear-Pedido.bru
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}/api/orders
+  body: json
+  auth: none
+}
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+{
+  "customerId": "ID_CLIENTE",
+  "items": [
+    {
+      "productId": "ID_PRODUCTO",
+      "quantity": 2
+    }
+  ],
+  "department": "La Libertad",
+  "province": "Trujillo",
+  "district": "Trujillo",
+  "address": "Direccion de prueba",
+  "delivery": "Delivery",
+  "paymentStatus": "Sin pago",
+  "notes": "Prueba Semana 13"
+}
+}

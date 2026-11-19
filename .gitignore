@@ -97,3 +97,12 @@ data/*.db
 *.backup-password
 
 .cayo-pro-backup/
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
