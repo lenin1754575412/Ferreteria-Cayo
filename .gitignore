@@ -95,3 +95,5 @@ data/*.sqlite
 data/*.sqlite-*
 data/*.db
 *.backup-password
+
+.cayo-pro-backup/
